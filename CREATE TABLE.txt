@@ -1,0 +1,127 @@
+CREATE TABLE `valeur` (
+  `valeur_id` tinyint(4) NOT NULL,
+  `intitule` varchar(6) NOT NULL,
+  PRIMARY KEY (`valeur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `couleur` (
+  `couleur_id` tinyint(4) NOT NULL,
+  `intitule` varchar(7) DEFAULT NULL,
+  PRIMARY KEY (`couleur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `carte` (
+	`carte_id` tinyint(4) NOT NULL,
+  `couleur_id` tinyint(4) NOT NULL,
+  `valeur_id` tinyint(4) NOT NULL,
+  PRIMARY KEY (`carte_id`),
+  FOREIGN KEY (`couleur_id`) REFERENCES `couleur`(`couleur_id`),
+  FOREIGN KEY (`valeur_id`) REFERENCES `valeur`(`valeur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `joueur` (
+  `joueur_id` int(11) NOT NULL,
+  `nb_victoire` int(11) DEFAULT NULL,
+  `score_moyen` float DEFAULT NULL,
+  `nb_partie` int(11) DEFAULT NULL,
+  `pseudo` varchar(20) NOT NULL,
+  PRIMARY KEY (`joueur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `humain` (
+	`joueur_id` int(11) NOT NULL,
+  `mot_de_passe` char(32) NOT NULL,
+  `age` smallint(6) DEFAULT NULL,
+  `ville` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`joueur_id`),
+  FOREIGN KEY (`joueur_id`) REFERENCES `joueur`(`joueur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `robot` (
+	`joueur_id` int(11) NOT NULL,
+	`programme` varchar(20) NOT NULL,
+  PRIMARY KEY (`joueur_id`),
+  FOREIGN KEY (`joueur_id`) REFERENCES `joueur`(`joueur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `partie` (
+  `partie_id` int(11) NOT NULL,
+  `eq_1a` int(11) DEFAULT NULL,
+  `eq_1b` int(11) DEFAULT NULL,
+  `score_eq1` smallint(6) DEFAULT NULL,
+  `eq_2a` int(11) DEFAULT NULL,
+  `eq_2b` int(1) DEFAULT NULL,
+  `score_eq2` smallint(6) DEFAULT NULL,
+  `duree` time DEFAULT NULL,
+  PRIMARY KEY (`partie_id`),
+  FOREIGN KEY (`eq_1a`) REFERENCES `joueur`(`joueur_id`),
+  FOREIGN KEY (`eq_1b`) REFERENCES `joueur`(`joueur_id`),
+  FOREIGN KEY (`eq_2a`) REFERENCES `joueur`(`joueur_id`),
+  FOREIGN KEY (`eq_2b`) REFERENCES `joueur`(`joueur_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `manche` (
+  `partie_id` int(11) NOT NULL,
+  `manche_nb` tinyint(4) NOT NULL,
+  `couleur_atout` char(8) DEFAULT NULL,
+  `joueur_prenant` int(11) DEFAULT NULL,
+  `atout_initial` tinyint(4) DEFAULT NULL,
+  `atout_final` tinyint(4) DEFAULT NULL,
+  `point_manche` smallint(6),
+  PRIMARY KEY (`partie_id`, `manche_nb`),
+  FOREIGN KEY (`partie_id`) REFERENCES `partie` (`partie_id`),
+  FOREIGN KEY (`joueur_prenant`) REFERENCES `joueur` (`joueur_id`),
+  FOREIGN KEY (`atout_initial`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`atout_final`) REFERENCES `carte` (`carte_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `main` (
+  `partie_id` int(11) NOT NULL,
+  `manche_nb` tinyint(4) NOT NULL,
+  `joueur_id` int(11) NOT NULL,
+  `carte_1` tinyint(4) DEFAULT NULL,
+  `carte_2` tinyint(4) DEFAULT NULL,
+  `carte_3` tinyint(4) DEFAULT NULL,
+  `carte_4` tinyint(4) DEFAULT NULL,
+  `carte_5` tinyint(4) DEFAULT NULL,
+  `carte_6` tinyint(4) DEFAULT NULL,
+  `carte_7` tinyint(4) DEFAULT NULL,
+  `carte_8` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`partie_id`, `manche_nb`, `joueur_id`),
+  FOREIGN KEY (`partie_id`, `manche_nb`) REFERENCES `manche` (`partie_id`, `manche_nb`),
+  FOREIGN KEY (`joueur_id`) REFERENCES `joueur` (`joueur_id`),
+  FOREIGN KEY (`carte_1`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_2`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_3`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_4`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_5`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_6`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_7`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_8`) REFERENCES `carte` (`carte_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `plis` (
+	`partie_id` int(11) NOT NULL,
+	`manche_nb` tinyint(4) NOT NULL,
+	`plis_nb` tinyint(4) NOT NULL,
+	`joueur_debut` int(11) DEFAULT NULL,
+  `carte_1` tinyint(4) DEFAULT NULL,
+  `carte_2` tinyint(4) DEFAULT NULL,
+  `carte_3` tinyint(4) DEFAULT NULL,
+  `carte_4` tinyint(4) DEFAULT NULL,
+	`note` char(1) DEFAULT ' ',
+	PRIMARY KEY (`partie_id`, `manche_nb`, `plis_nb`),
+	FOREIGN KEY (`partie_id`, `manche_nb`) REFERENCES `manche` (`partie_id`, `manche_nb`),
+	FOREIGN KEY (`joueur_debut`) REFERENCES `joueur` (`joueur_id`),
+  FOREIGN KEY (`carte_1`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_2`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_3`) REFERENCES `carte` (`carte_id`),
+  FOREIGN KEY (`carte_4`) REFERENCES `carte` (`carte_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
