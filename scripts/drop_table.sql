@@ -1,0 +1,1 @@
+DROP TABLE humain, main, plis ,manche, partie, robot, joueur;
