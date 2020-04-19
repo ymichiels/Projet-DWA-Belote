@@ -1,7 +1,7 @@
 package DAO.helper;
 
-import DAO.pojo_JPA.Joueur;
-import DAO.pojo_JPA.Partie;
+import DAO.pojo.Joueur;
+import DAO.pojo.Partie;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

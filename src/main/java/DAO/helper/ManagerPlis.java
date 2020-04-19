@@ -1,6 +1,6 @@
 package DAO.helper;
 
-import DAO.pojo_JPA.*;
+import DAO.pojo.*;
 
 import javax.persistence.EntityManager;
 

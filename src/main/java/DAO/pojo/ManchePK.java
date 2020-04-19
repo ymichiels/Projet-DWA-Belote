@@ -1,4 +1,4 @@
-package DAO.pojo_JPA;
+package DAO.pojo;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author jcebollado
  */
 @Embeddable
-public class MainPK implements Serializable {
+public class ManchePK implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "partie_id")
@@ -18,17 +18,13 @@ public class MainPK implements Serializable {
     @Basic(optional = false)
     @Column(name = "manche_nb")
     private short mancheNb;
-    @Basic(optional = false)
-    @Column(name = "joueur_id")
-    private int joueurId;
 
-    public MainPK() {
+    public ManchePK() {
     }
 
-    public MainPK(int partieId, short mancheNb, int joueurId) {
+    public ManchePK(int partieId, short mancheNb) {
         this.partieId = partieId;
         this.mancheNb = mancheNb;
-        this.joueurId = joueurId;
     }
 
     public int getPartieId() {
@@ -47,37 +43,25 @@ public class MainPK implements Serializable {
         this.mancheNb = mancheNb;
     }
 
-    public int getJoueurId() {
-        return joueurId;
-    }
-
-    public void setJoueurId(int joueurId) {
-        this.joueurId = joueurId;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) partieId;
         hash += (int) mancheNb;
-        hash += (int) joueurId;
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MainPK)) {
+        if (!(object instanceof ManchePK)) {
             return false;
         }
-        MainPK other = (MainPK) object;
+        ManchePK other = (ManchePK) object;
         if (this.partieId != other.partieId) {
             return false;
         }
         if (this.mancheNb != other.mancheNb) {
-            return false;
-        }
-        if (this.joueurId != other.joueurId) {
             return false;
         }
         return true;
@@ -85,7 +69,7 @@ public class MainPK implements Serializable {
 
     @Override
     public String toString() {
-        return "dao.pojo.MainPK[ partieId=" + partieId + ", mancheNb=" + mancheNb + ", joueurId=" + joueurId + " ]";
+        return "dao.pojo.ManchePK[ partieId=" + partieId + ", mancheNb=" + mancheNb + " ]";
     }
     
 }

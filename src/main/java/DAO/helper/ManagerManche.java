@@ -1,9 +1,9 @@
 package DAO.helper;
 
-import DAO.pojo_JPA.Carte;
-import DAO.pojo_JPA.Manche;
-import DAO.pojo_JPA.ManchePK;
-import DAO.pojo_JPA.Partie;
+import DAO.pojo.Carte;
+import DAO.pojo.Manche;
+import DAO.pojo.ManchePK;
+import DAO.pojo.Partie;
 
 import javax.persistence.EntityManager;
 

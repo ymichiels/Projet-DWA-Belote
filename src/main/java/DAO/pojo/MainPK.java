@@ -1,4 +1,4 @@
-package DAO.pojo_JPA;
+package DAO.pojo;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author jcebollado
  */
 @Embeddable
-public class PlisPK implements Serializable {
+public class MainPK implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "partie_id")
@@ -19,16 +19,16 @@ public class PlisPK implements Serializable {
     @Column(name = "manche_nb")
     private short mancheNb;
     @Basic(optional = false)
-    @Column(name = "plis_nb")
-    private short plisNb;
+    @Column(name = "joueur_id")
+    private int joueurId;
 
-    public PlisPK() {
+    public MainPK() {
     }
 
-    public PlisPK(int partieId, short mancheNb, short plisNb) {
+    public MainPK(int partieId, short mancheNb, int joueurId) {
         this.partieId = partieId;
         this.mancheNb = mancheNb;
-        this.plisNb = plisNb;
+        this.joueurId = joueurId;
     }
 
     public int getPartieId() {
@@ -47,12 +47,12 @@ public class PlisPK implements Serializable {
         this.mancheNb = mancheNb;
     }
 
-    public short getPlisNb() {
-        return plisNb;
+    public int getJoueurId() {
+        return joueurId;
     }
 
-    public void setPlisNb(short plisNb) {
-        this.plisNb = plisNb;
+    public void setJoueurId(int joueurId) {
+        this.joueurId = joueurId;
     }
 
     @Override
@@ -60,24 +60,24 @@ public class PlisPK implements Serializable {
         int hash = 0;
         hash += (int) partieId;
         hash += (int) mancheNb;
-        hash += (int) plisNb;
+        hash += (int) joueurId;
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PlisPK)) {
+        if (!(object instanceof MainPK)) {
             return false;
         }
-        PlisPK other = (PlisPK) object;
+        MainPK other = (MainPK) object;
         if (this.partieId != other.partieId) {
             return false;
         }
         if (this.mancheNb != other.mancheNb) {
             return false;
         }
-        if (this.plisNb != other.plisNb) {
+        if (this.joueurId != other.joueurId) {
             return false;
         }
         return true;
@@ -85,7 +85,7 @@ public class PlisPK implements Serializable {
 
     @Override
     public String toString() {
-        return "dao.pojo.PlisPK[ partieId=" + partieId + ", mancheNb=" + mancheNb + ", plisNb=" + plisNb + " ]";
+        return "dao.pojo.MainPK[ partieId=" + partieId + ", mancheNb=" + mancheNb + ", joueurId=" + joueurId + " ]";
     }
     
 }

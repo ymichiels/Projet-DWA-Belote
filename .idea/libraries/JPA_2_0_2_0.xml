@@ -2,6 +2,7 @@
   <library name="JPA 2.0-2.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/javax.persistence.jar!/" />
+      <root url="jar://D:/Documents/Université/Master/Master1/Université/S2/Dev Web Avancée/drivers/mysql/mysql-connector-java-8.0.19.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

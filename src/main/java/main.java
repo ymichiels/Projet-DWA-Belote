@@ -1,4 +1,4 @@
-import DAO.pojo_JPA.*;
+import DAO.pojo.*;
 import javax.persistence.*;
 
 public class main {

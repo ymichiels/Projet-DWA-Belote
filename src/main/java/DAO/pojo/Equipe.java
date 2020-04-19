@@ -1,4 +1,4 @@
-package DAO.pojo_JPA;
+package DAO.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

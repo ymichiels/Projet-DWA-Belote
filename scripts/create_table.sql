@@ -49,7 +49,6 @@ CREATE TABLE `partie` (
 CREATE TABLE `manche` (
   `partie_id` int(11) NOT NULL,
   `manche_nb` tinyint(4) NOT NULL,
-  `couleur_atout` char(8) DEFAULT NULL,
   `joueur_prenant` int(11) DEFAULT NULL,
   `atout_initial` varchar(13) DEFAULT NULL,
   `atout_final` varchar(13) DEFAULT NULL,

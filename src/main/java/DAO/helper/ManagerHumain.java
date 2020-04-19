@@ -1,6 +1,6 @@
 package DAO.helper;
 
-import DAO.pojo_JPA.Humain;
+import DAO.pojo.Humain;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
