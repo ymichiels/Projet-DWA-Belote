@@ -1,7 +1,6 @@
-package DAO.pojo;
+package dao.pojo;
 
 /**
- *
  * @author jcebollado
  */
 public enum EvenementPlis {

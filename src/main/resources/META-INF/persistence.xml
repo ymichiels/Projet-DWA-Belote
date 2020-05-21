@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="BelotePU" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="persistenceUnit">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>DAO.pojo.Carte</class>
-        <class>DAO.pojo.Joueur</class>
-        <class>DAO.pojo.Manche</class>
-        <class>DAO.pojo.Partie</class>
-        <class>DAO.pojo.Plis</class>
-        <class>DAO.pojo.Main</class>
-        <class>DAO.pojo.Robot</class>
-        <class>DAO.pojo.Humain</class>
+        <class>dao.mypojointellj.HumainEntity</class>
+        <class>dao.mypojointellj.JoueurEntity</class>
+        <class>dao.mypojointellj.MainEntity</class>
+        <class>dao.mypojointellj.MancheEntity</class>
+        <class>dao.mypojointellj.PartieEntity</class>
+        <class>dao.mypojointellj.PlisEntity</class>
+        <class>dao.mypojointellj.RobotEntity</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/belote?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
-            <property name="javax.persistence.jdbc.cj.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <!-- Configuration de la BDD -->
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/belote?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.cj.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="yan"/>
+            <property name="javax.persistence.jdbc.password" value="yan"/>
+            <!--<property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/belote"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>-->
+
+            <!-- Spécifie le 'dialecte' SQL utilisé pour communiquer avec la BDD -->
+            <property name="eclipselink.target-database" value="MySQLInnoDBDialect"/>
         </properties>
     </persistence-unit>
+
+    <persistence-unit name="BelotePU">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>dao.pojo.Carte</class>
+        <class>dao.pojo.Joueur</class>
+        <class>dao.pojo.Manche</class>
+        <class>dao.pojo.Partie</class>
+        <class>dao.pojo.Plis</class>
+        <class>dao.pojo.Main</class>
+        <class>dao.pojo.Robot</class>
+        <class>dao.pojo.Humain</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/belote?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.cj.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="yan"/>
+            <property name="javax.persistence.jdbc.password" value="yan"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>

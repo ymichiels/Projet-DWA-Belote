@@ -1,29 +1,28 @@
-package DAO.pojo;
+package dao.pojo;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- *
  * @author jcebollado
  */
 @Entity
 @Table(name = "main")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Main.findAll", query = "SELECT m FROM Main m")
-    , @NamedQuery(name = "Main.findByPartieId", query = "SELECT m FROM Main m WHERE m.mainPK.partieId = :partieId")
-    , @NamedQuery(name = "Main.findByMancheNb", query = "SELECT m FROM Main m WHERE m.mainPK.mancheNb = :mancheNb")
-    , @NamedQuery(name = "Main.findByJoueurId", query = "SELECT m FROM Main m WHERE m.mainPK.joueurId = :joueurId")
-    , @NamedQuery(name = "Main.findByCarte1", query = "SELECT m FROM Main m WHERE m.carte1 = :carte1")
-    , @NamedQuery(name = "Main.findByCarte2", query = "SELECT m FROM Main m WHERE m.carte2 = :carte2")
-    , @NamedQuery(name = "Main.findByCarte3", query = "SELECT m FROM Main m WHERE m.carte3 = :carte3")
-    , @NamedQuery(name = "Main.findByCarte4", query = "SELECT m FROM Main m WHERE m.carte4 = :carte4")
-    , @NamedQuery(name = "Main.findByCarte5", query = "SELECT m FROM Main m WHERE m.carte5 = :carte5")
-    , @NamedQuery(name = "Main.findByCarte6", query = "SELECT m FROM Main m WHERE m.carte6 = :carte6")
-    , @NamedQuery(name = "Main.findByCarte7", query = "SELECT m FROM Main m WHERE m.carte7 = :carte7")
-    , @NamedQuery(name = "Main.findByCarte8", query = "SELECT m FROM Main m WHERE m.carte8 = :carte8")})
+        @NamedQuery(name = "Main.findAll", query = "SELECT m FROM Main m")
+        , @NamedQuery(name = "Main.findByPartieId", query = "SELECT m FROM Main m WHERE m.mainPK.partieId = :partieId")
+        , @NamedQuery(name = "Main.findByMancheNb", query = "SELECT m FROM Main m WHERE m.mainPK.mancheNb = :mancheNb")
+        , @NamedQuery(name = "Main.findByJoueurId", query = "SELECT m FROM Main m WHERE m.mainPK.joueurId = :joueurId")
+        , @NamedQuery(name = "Main.findByCarte1", query = "SELECT m FROM Main m WHERE m.carte1 = :carte1")
+        , @NamedQuery(name = "Main.findByCarte2", query = "SELECT m FROM Main m WHERE m.carte2 = :carte2")
+        , @NamedQuery(name = "Main.findByCarte3", query = "SELECT m FROM Main m WHERE m.carte3 = :carte3")
+        , @NamedQuery(name = "Main.findByCarte4", query = "SELECT m FROM Main m WHERE m.carte4 = :carte4")
+        , @NamedQuery(name = "Main.findByCarte5", query = "SELECT m FROM Main m WHERE m.carte5 = :carte5")
+        , @NamedQuery(name = "Main.findByCarte6", query = "SELECT m FROM Main m WHERE m.carte6 = :carte6")
+        , @NamedQuery(name = "Main.findByCarte7", query = "SELECT m FROM Main m WHERE m.carte7 = :carte7")
+        , @NamedQuery(name = "Main.findByCarte8", query = "SELECT m FROM Main m WHERE m.carte8 = :carte8")})
 public class Main implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,8 +53,8 @@ public class Main implements Serializable {
     @Column(name = "carte_8")
     private Carte carte8;
     @JoinColumns({
-        @JoinColumn(name = "partie_id", referencedColumnName = "partie_id", insertable = false, updatable = false)
-        , @JoinColumn(name = "manche_nb", referencedColumnName = "manche_nb", insertable = false, updatable = false)})
+            @JoinColumn(name = "partie_id", referencedColumnName = "partie_id", insertable = false, updatable = false)
+            , @JoinColumn(name = "manche_nb", referencedColumnName = "manche_nb", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Manche manche;
     @JoinColumn(name = "joueur_id", referencedColumnName = "joueur_id", insertable = false, updatable = false)
@@ -185,5 +184,5 @@ public class Main implements Serializable {
     public String toString() {
         return "dao.pojo.Main[ mainPK=" + mainPK + " ]";
     }
-    
+
 }

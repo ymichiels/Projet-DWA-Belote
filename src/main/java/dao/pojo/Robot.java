@@ -1,19 +1,18 @@
-package DAO.pojo;
+package dao.pojo;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author jcebollado
  */
 @Entity
 @Table(name = "robot")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Robot.findAll", query = "SELECT r FROM Robot r")
-    , @NamedQuery(name = "Robot.findByJoueurId", query = "SELECT r FROM Robot r WHERE r.joueurId = :joueurId")
-    , @NamedQuery(name = "Robot.findByProgramme", query = "SELECT r FROM Robot r WHERE r.programme = :programme")})
+        @NamedQuery(name = "Robot.findAll", query = "SELECT r FROM Robot r")
+        , @NamedQuery(name = "Robot.findByJoueurId", query = "SELECT r FROM Robot r WHERE r.joueurId = :joueurId")
+        , @NamedQuery(name = "Robot.findByProgramme", query = "SELECT r FROM Robot r WHERE r.programme = :programme")})
 public class Robot extends Joueur {
 
     private static final long serialVersionUID = 1L;
@@ -84,7 +83,7 @@ public class Robot extends Joueur {
         /*if ((this.joueurId == null && other.joueurId != null) || (this.joueurId != null && !this.joueurId.equals(other.joueurId))) {
             return false;
         }*/
-        if(!super.equals(other)) {
+        if (!super.equals(other)) {
             return false;
         }
         return true;
@@ -94,5 +93,5 @@ public class Robot extends Joueur {
     public String toString() {
         return "dao.pojo.Robot[ super=" + super.toString() + " ]";
     }
-    
+
 }

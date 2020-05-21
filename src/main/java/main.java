@@ -1,4 +1,5 @@
-import DAO.pojo.*;
+import dao.mypojointellj.*;
+
 import javax.persistence.*;
 
 public class main {
@@ -6,7 +7,7 @@ public class main {
     public static void main(String[] args) {
         EntityTransaction trans = null;
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -16,8 +17,8 @@ public class main {
             int partieId = 1;
             byte mancheId = 1;
 
-            Humain hum = new Humain();
-            hum.setPseudo("dummy");
+            HumainEntity hum = new HumainEntity();
+            //hum.setPseudo("dummy");
 
             //Partie partie = em.find(Partie.class, partieId);
             //Partie partie = new Partie();
@@ -36,15 +37,15 @@ public class main {
             em.merge(hum);
 
             trans.commit();
-        } catch(PersistenceException err) {
+        } catch (PersistenceException err) {
             try {
-                if(trans != null) {
+                if (trans != null) {
                     trans.rollback();
                 }
-            } catch(Exception rollErr) {
+            } catch (Exception rollErr) {
                 System.err.println(rollErr);
             }
-            throw(err);
+            throw (err);
         }
         // TODO code application logic here
     }

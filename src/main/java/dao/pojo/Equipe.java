@@ -1,11 +1,10 @@
-package DAO.pojo;
+package dao.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 
 /**
- *
  * @author jcebollado
  */
 @Embeddable
@@ -40,5 +39,5 @@ public class Equipe {
     public void setScore(Short score) {
         this.score = score;
     }
-    
+
 }

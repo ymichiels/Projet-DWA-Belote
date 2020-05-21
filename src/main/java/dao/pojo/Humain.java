@@ -1,21 +1,20 @@
-package DAO.pojo;
+package dao.pojo;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author jcebollado
  */
 @Entity
 @Table(name = "humain")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Humain.findAll", query = "SELECT h FROM Humain h")
-    , @NamedQuery(name = "Humain.findByJoueurId", query = "SELECT h FROM Humain h WHERE h.joueurId = :joueurId")
-    , @NamedQuery(name = "Humain.findByMotDePasse", query = "SELECT h FROM Humain h WHERE h.motDePasse = :motDePasse")
-    , @NamedQuery(name = "Humain.findByAge", query = "SELECT h FROM Humain h WHERE h.age = :age")
-    , @NamedQuery(name = "Humain.findByVille", query = "SELECT h FROM Humain h WHERE h.ville = :ville")})
+        @NamedQuery(name = "Humain.findAll", query = "SELECT h FROM Humain h")
+        , @NamedQuery(name = "Humain.findByJoueurId", query = "SELECT h FROM Humain h WHERE h.joueurId = :joueurId")
+        , @NamedQuery(name = "Humain.findByMotDePasse", query = "SELECT h FROM Humain h WHERE h.motDePasse = :motDePasse")
+        , @NamedQuery(name = "Humain.findByAge", query = "SELECT h FROM Humain h WHERE h.age = :age")
+        , @NamedQuery(name = "Humain.findByVille", query = "SELECT h FROM Humain h WHERE h.ville = :ville")})
 public class Humain extends Joueur {
 
     private static final long serialVersionUID = 1L;
@@ -73,11 +72,11 @@ public class Humain extends Joueur {
     public void setAge(Short age) {
         this.age = age;
     }
-    
-    public Character getSexe(){
+
+    public Character getSexe() {
         return sexe;
     }
-    
+
     public void setSexe(Character sexe) {
         this.sexe = sexe;
     }
@@ -116,7 +115,7 @@ public class Humain extends Joueur {
         /*if ((this.joueurId == null && other.joueurId != null) || (this.joueurId != null && !this.joueurId.equals(other.joueurId))) {
             return false;
         }*/
-        if(!super.equals(other)) {
+        if (!super.equals(other)) {
             return false;
         }
         return true;
@@ -127,5 +126,5 @@ public class Humain extends Joueur {
         //return "dao.pojo.Humain[ joueurId=" + joueurId + " ]";
         return "dao.pojo.Humain[ joueurId=" + super.toString() + " ]";
     }
-    
+
 }
