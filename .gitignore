@@ -1,1 +1,7 @@
 nbproject/private/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
