@@ -1,5 +1,7 @@
 package dao.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -8,17 +10,18 @@ import java.util.Collection;
 import java.util.Date;
 
 /**
+ *
  * @author jcebollado
  */
 @Entity
 @Table(name = "partie")
 @XmlRootElement
 @NamedQueries({
-        @NamedQuery(name = "Partie.findAll", query = "SELECT p FROM Partie p")
-        , @NamedQuery(name = "Partie.findByPartieId", query = "SELECT p FROM Partie p WHERE p.partieId = :partieId")
-        , @NamedQuery(name = "Partie.findByScoreEq1", query = "SELECT p FROM Partie p WHERE p.scoreEq1 = :scoreEq1")
-        , @NamedQuery(name = "Partie.findByScoreEq2", query = "SELECT p FROM Partie p WHERE p.scoreEq2 = :scoreEq2")
-        , @NamedQuery(name = "Partie.findByDuree", query = "SELECT p FROM Partie p WHERE p.duree = :duree")})
+    @NamedQuery(name = "Partie.findAll", query = "SELECT p FROM Partie p")
+    , @NamedQuery(name = "Partie.findByPartieId", query = "SELECT p FROM Partie p WHERE p.partieId = :partieId")
+    , @NamedQuery(name = "Partie.findByScoreEq1", query = "SELECT p FROM Partie p WHERE p.scoreEq1 = :scoreEq1")
+    , @NamedQuery(name = "Partie.findByScoreEq2", query = "SELECT p FROM Partie p WHERE p.scoreEq2 = :scoreEq2")
+    , @NamedQuery(name = "Partie.findByDuree", query = "SELECT p FROM Partie p WHERE p.duree = :duree")})
 public class Partie implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,27 +31,27 @@ public class Partie implements Serializable {
             name = "partiePkGen",
             pkColumnName = "SEQ_NAME",
             pkColumnValue = "joueur",
-            valueColumnName = "SEQ_COUNT",
+            valueColumnName = "SEQ_COUNT", 
             table = "SEQUENCE"
     )
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "partiePkGen")
     @Column(name = "partie_id")
     private Integer partieId;
-
+    
     @JoinColumn(name = "eq_1a")
     private Joueur eq1a;
     @JoinColumn(name = "eq_1b")
     private Joueur eq1b;
     @Column(name = "score_eq1")
     private Short scoreEq1;
-
+    
     @JoinColumn(name = "eq_2a")
     private Joueur eq2a;
     @JoinColumn(name = "eq_2b")
     private Joueur eq2b;
     @Column(name = "score_eq2")
     private Short scoreEq2;
-
+    
     /* BUGGER (soit un bug dans eclipse link, soit un problème dans le code ?)
     @Embedded
     @AttributeOverrides({
@@ -132,7 +135,7 @@ public class Partie implements Serializable {
     public void setScoreEq2(Short scoreEq2) {
         this.scoreEq2 = scoreEq2;
     }
-
+    
     public Date getDuree() {
         return duree;
     }
@@ -157,6 +160,7 @@ public class Partie implements Serializable {
         this.equipe2 = equipe2;
     }*/
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Manche> getMancheCollection() {
         return mancheCollection;
@@ -190,5 +194,5 @@ public class Partie implements Serializable {
     public String toString() {
         return "dao.pojo.Partie[ partieId=" + partieId + " ]";
     }
-
+    
 }

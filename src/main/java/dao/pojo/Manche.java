@@ -1,5 +1,7 @@
 package dao.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -7,18 +9,19 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
+ *
  * @author jcebollado
  */
 @Entity
 @Table(name = "manche")
 @XmlRootElement
 @NamedQueries({
-        @NamedQuery(name = "Manche.findAll", query = "SELECT m FROM Manche m")
-        , @NamedQuery(name = "Manche.findByPartieId", query = "SELECT m FROM Manche m WHERE m.manchePK.partieId = :partieId")
-        , @NamedQuery(name = "Manche.findByMancheNb", query = "SELECT m FROM Manche m WHERE m.manchePK.mancheNb = :mancheNb")
-        , @NamedQuery(name = "Manche.findByAtoutInitial", query = "SELECT m FROM Manche m WHERE m.atoutInitial = :atoutInitial")
-        , @NamedQuery(name = "Manche.findByAtoutFinal", query = "SELECT m FROM Manche m WHERE m.atoutFinal = :atoutFinal")
-        , @NamedQuery(name = "Manche.findByPointManche", query = "SELECT m FROM Manche m WHERE m.pointManche = :pointManche")})
+    @NamedQuery(name = "Manche.findAll", query = "SELECT m FROM Manche m")
+    , @NamedQuery(name = "Manche.findByPartieId", query = "SELECT m FROM Manche m WHERE m.manchePK.partieId = :partieId")
+    , @NamedQuery(name = "Manche.findByMancheNb", query = "SELECT m FROM Manche m WHERE m.manchePK.mancheNb = :mancheNb")
+    , @NamedQuery(name = "Manche.findByAtoutInitial", query = "SELECT m FROM Manche m WHERE m.atoutInitial = :atoutInitial")
+    , @NamedQuery(name = "Manche.findByAtoutFinal", query = "SELECT m FROM Manche m WHERE m.atoutFinal = :atoutFinal")
+    , @NamedQuery(name = "Manche.findByPointManche", query = "SELECT m FROM Manche m WHERE m.pointManche = :pointManche")})
 public class Manche implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,7 +71,7 @@ public class Manche implements Serializable {
 
     public void setAtoutInitial(Carte atoutInitial) {
         this.atoutInitial = atoutInitial;
-        if (this.atoutFinal == null) {
+        if(this.atoutFinal == null) {
             this.atoutFinal = atoutInitial;
         }
     }
@@ -89,6 +92,7 @@ public class Manche implements Serializable {
         this.pointManche = pointManche;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Plis> getPlisCollection() {
         return plisCollection;
@@ -98,6 +102,7 @@ public class Manche implements Serializable {
         this.plisCollection = plisCollection;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Main> getMainCollection() {
         return mainCollection;
@@ -122,7 +127,7 @@ public class Manche implements Serializable {
     public void setJoueurPrenant(Joueur joueurPrenant) {
         this.joueurPrenant = joueurPrenant;
     }
-
+    
     public Carte.Couleur getCouleurAtout() {
         return this.atoutFinal.getCouleur();
     }
@@ -151,5 +156,5 @@ public class Manche implements Serializable {
     public String toString() {
         return "dao.pojo.Manche[ manchePK=" + manchePK + " ]";
     }
-
+    
 }
