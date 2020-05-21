@@ -84,7 +84,7 @@
             <label for="inputPassword" class="sr-only">Mot de passe</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-            <p class="mt-5 mb-3 text-muted">Michiels Yan & Cebollado Johann &copy; 2020-undifined</p>
         </form>
+        <%@include file="footer.jsp"%>
     </body>
 </html>

@@ -11,6 +11,9 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+    <div class="wrapper">
+        <%@include file="sidebar.jsp"%>
+        <%@include file="dashboard_content.jsp"%>
+        <%@include file="footer.jsp"%>
 </body>
 </html>
