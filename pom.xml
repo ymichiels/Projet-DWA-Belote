@@ -26,12 +26,12 @@
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>${eclipselink.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java-->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
-        </dependency>-->
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>2.6.0</version>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
@@ -91,17 +91,32 @@
                     </webResources>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
                     <server>TomcatServer</server>
-                    <!-- the user must have "manager-gui" and "manager-script" -->
+                    <! the user must have "manager-gui" and "manager-script" >
                     <username>auto-upload</username>
                     <password>dummy</password>
-                    <url>http://109.220.129.217:1234/manager/text</url>
+                    <url>http://tomcattest.azurewebsites.net/manager/text</url>
                     <path>/belote</path>
+                </configuration>
+            </plugin>-->
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-webapp-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <configuration>
+                    <resourceGroup>test_tomcat</resourceGroup>
+                    <appName>tomcattest</appName>
+
+                    <!-- Java Running Stack for Web App on Linux-->
+                    <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+
+                    <!-- Deployment Type -->
+                    <deploymentType>war</deploymentType>
                 </configuration>
             </plugin>
         </plugins>

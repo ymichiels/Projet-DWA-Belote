@@ -32,7 +32,8 @@ public class Partie implements Serializable {
             pkColumnName = "SEQ_NAME",
             pkColumnValue = "joueur",
             valueColumnName = "SEQ_COUNT", 
-            table = "SEQUENCE"
+            table = "SEQUENCE",
+            allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "partiePkGen")
     @Column(name = "partie_id")

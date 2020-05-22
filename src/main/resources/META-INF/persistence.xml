@@ -37,10 +37,10 @@
         <class>dao.pojo.Humain</class>
         <properties>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/belote?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
-            <property name="javax.persistence.jdbc.cj.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.user" value="yan"/>
-            <property name="javax.persistence.jdbc.password" value="yan"/>
+                      value="jdbc:mariadb://beloted.mariadb.database.azure.com:3306/belote?useSSL=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.cj.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="myAdmin@beloted"/>
+            <property name="javax.persistence.jdbc.password" value="myAdmin"/>
         </properties>
     </persistence-unit>
 

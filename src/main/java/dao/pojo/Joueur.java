@@ -34,7 +34,8 @@ public class Joueur implements Serializable {
             pkColumnName = "SEQ_NAME",
             pkColumnValue = "joueur",
             valueColumnName = "SEQ_COUNT", 
-            table = "SEQUENCE"
+            table = "SEQUENCE",
+            allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "joueurPkGen")
     @Column(name = "joueur_id")

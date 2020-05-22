@@ -90,3 +90,9 @@ CREATE TABLE `plis` (
   FOREIGN KEY (`partie_id`, `manche_nb`) REFERENCES `manche` (`partie_id`, `manche_nb`),
   FOREIGN KEY (`joueur_debut`) REFERENCES `joueur` (`joueur_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `SEQUENCE` (
+  `SEQ_NAME` varchar(15) NOT NULL,
+  `SEQ_COUNT` int DEFAULT '0',
+  PRIMARY KEY (`SEQ_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
