@@ -12,10 +12,8 @@ function distribute() {
 function getDeck() {
     var deck = new Array();
 
-    for(var i = 0; i < couleur.length; i++)
-    {
-        for(var j = 0; x < valeur.length; j++)
-        {
+    for (var i = 0; i < couleur.length; i++) {
+        for (var j = 0; x < valeur.length; j++) {
             var card = {Value: valeur[x]};
             deck.push(card);
         }

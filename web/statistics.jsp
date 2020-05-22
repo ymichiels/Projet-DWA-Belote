@@ -45,6 +45,6 @@
                 html5.</small>
         </div>
     </div>
-<!-- End of Page Content -->
+    <!-- End of Page Content -->
 </div>
 

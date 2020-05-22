@@ -42,7 +42,7 @@ a:focus {
     text-align: center;
 }
 
-#sidebar.active .sidebar-header h3{
+#sidebar.active .sidebar-header h3 {
     display: none;
 }
 
@@ -101,7 +101,7 @@ a:focus {
     display: block;
 }
 
-#sidebar ul li a:hover{
+#sidebar ul li a:hover {
     color: #007bff;
     background: #ffffff;
 }
