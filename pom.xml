@@ -100,7 +100,7 @@
                     <!-- the user must have "manager-gui" and "manager-script" -->
                     <username>auto-upload</username>
                     <password>dummy</password>
-                    <url>http://109.220.129.217:1234/manager/text</url>
+                    <url>http://20.188.44.39:80/manager/text</url>
                     <path>/belote</path>
                 </configuration>
             </plugin>
