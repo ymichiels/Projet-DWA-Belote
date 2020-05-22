@@ -73,7 +73,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <label for="selectSexe">Sexe</label>
-                                    <select class="custom-select" id="selectSexe">
+                                    <select class="custom-select rounded-pill" id="selectSexe" required>
+                                        <option selected disabled value="">Choisissez</option>
                                         <option value="1">Feminin</option>
                                         <option value="2">Masculin</option>
                                     </select>
