@@ -48,72 +48,72 @@
     </style>
 </head>
 
-<!-- Register  -->
-<body class="bg-gradient-primary">
-<div class="container">
-    <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row align-items-center">
-                <div class="col-lg-6 d-none d-lg-block">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" src="medias/img/belote.jpg" alt="">
-                </div>
-                <div class="col-lg6">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h4 mb-4">Créer un nouveau compte !</h1>
+    <!-- Register  -->
+    <body class="bg-gradient-primary">
+        <div class="container">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" src="medias/img/belote.jpg" alt="">
                         </div>
-                        <hr>
-                        <form class="needs-validation" novalidate>
-                            <div class="form-row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="inputCity">Ville</label>
-                                    <input type="text" class="form-control rounded-pill" id="inputCity"
-                                           placeholder="Ville" required>
+                        <div class="col-lg6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 mb-4">Créer un nouveau compte !</h1>
                                 </div>
-                                <div class="col-sm-4 mb-3">
-                                    <label for="selectSexe">Sexe</label>
-                                    <select class="custom-select rounded-pill" id="selectSexe" required>
-                                        <option selected disabled value="">Choisissez</option>
-                                        <option value="1">Feminin</option>
-                                        <option value="2">Masculin</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2 mb-3">
-                                    <label for="inputAge">Age</label>
-                                    <input type="text" class="form-control rounded-pill" id="inputAge" placeholder="Age"
-                                           required>
+                                <hr>
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="inputCity">Ville</label>
+                                            <input type="text" class="form-control rounded-pill" id="inputCity"
+                                                   placeholder="Ville" required>
+                                        </div>
+                                        <div class="col-sm-4 mb-3">
+                                            <label for="selectSexe">Sexe</label>
+                                            <select class="custom-select rounded-pill" id="selectSexe" required>
+                                                <option selected disabled value="">Choisissez</option>
+                                                <option value="1">Feminin</option>
+                                                <option value="2">Masculin</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2 mb-3">
+                                            <label for="inputAge">Age</label>
+                                            <input type="text" class="form-control rounded-pill" id="inputAge" placeholder="Age"
+                                                   required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPseudo">Pseudo</label>
+                                        <input type="pseudo" class="form-control rounded-pill" id="inputPseudo"
+                                               placeholder="Pseudo" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="inputPassword">Mot de passe</label>
+                                            <input type="password" class="form-control rounded-pill" id="inputPassword"
+                                                   placeholder="Mot de¨passe">
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <label for="inputRepeatPassword">Mot de passe</label>
+                                            <input type="password" class="form-control rounded-pill" id="inputRepeatPassword"
+                                                   placeholder="Répéter le mot de passe">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-block rounded-pill" type="submit">S'inscrire</button>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="login.html">J'ai déja un compte ? Se connecter !</a>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inputPseudo">Pseudo</label>
-                                <input type="pseudo" class="form-control rounded-pill" id="inputPseudo"
-                                       placeholder="Pseudo" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="inputPassword">Mot de passe</label>
-                                    <input type="password" class="form-control rounded-pill" id="inputPassword"
-                                           placeholder="Mot de¨passe">
-                                </div>
-                                <div class="col-sm-6 mb-3">
-                                    <label for="inputRepeatPassword">Mot de passe</label>
-                                    <input type="password" class="form-control rounded-pill" id="inputRepeatPassword"
-                                           placeholder="Répéter le mot de passe">
-                                </div>
-                            </div>
-                            <button class="btn btn-primary btn-block rounded-pill" type="submit">S'inscrire</button>
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <a class="small" href="login.html">J'ai déja un compte ? Se connecter !</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</body>
-<!-- End of Register -->
+    <!-- End of Register -->
+    </body>
 </html>

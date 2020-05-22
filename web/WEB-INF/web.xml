@@ -19,7 +19,7 @@
         <session-timeout>30</session-timeout>
     </session-config>
 
-    <!-- met index.jsp en racine -->
+    <!-- met login.jsp en racine -->
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
