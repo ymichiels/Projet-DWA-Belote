@@ -7,13 +7,26 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>$Title$</title>
-</head>
-<body>
-    <div class="wrapper">
-        <%@include file="sidebar.jsp"%>
-        <%@include file="dashboard_content.jsp"%>
-        <%@include file="footer.jsp"%>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Michiels Yan & Cebollado Johann">
+        <%--TODO--%>
+        <!--<link rel="icon" href="">-->
+
+        <title>Belote - Footer</title>
+
+        <!-- Fontawesome core CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <%@include file="sidebar.jsp"%>
+            <%@include file="dashboard_content.jsp"%>
+            <%@include file="footer.jsp"%>
+    </body>
 </html>
