@@ -39,11 +39,17 @@
                 padding-top: 40px;
                 padding-bottom: 40px;
             }
+
+            .bg-gradient-primary {
+                background-color: #007bff;
+                background-image: linear-gradient(180deg, #007bff 10%, #224abe 100%);
+                background-size: cover;
+            }
         </style>
     </head>
 
     <!-- Register  -->
-    <body class="bg-primary">
+    <body class="bg-gradient-primary">
         <div class="container">
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
