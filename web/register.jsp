@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Michiels Yan & Cebollado Johann">
-    <link rel="icon" href="medias/img/favicon/favicon.ico">
+    <link rel="icon" href="medias/img/favicon.png">
 
     <title>Belote - Inscription</title>
 
