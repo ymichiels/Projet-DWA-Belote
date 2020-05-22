@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Michiels Yan & Cebollado Johann">
-    <link rel="icon" href="resources/medias/img/favicon/favicon.ico">
+    <link rel="icon" href="medias/img/favicon/favicon.ico">
 
     <title>Belote</title>
 
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="wrapper">
@@ -32,6 +32,6 @@
     <%@include file="footer.jsp" %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="resources/js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
