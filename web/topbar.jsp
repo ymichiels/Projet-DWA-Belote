@@ -17,7 +17,8 @@
             <ul class="nav navbar-nav ml-auto">
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
                         <span class="">Eric Cariou</span>
                         <i class="fas fa-2x fa-user-circle"></i>
                     </a>

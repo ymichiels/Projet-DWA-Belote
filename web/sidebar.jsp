@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!-- Sidebar  -->
+<!-- Sidebar -->
 <nav id="sidebar">
     <div class="sidebar-header">
         <h1>Belote</h1>

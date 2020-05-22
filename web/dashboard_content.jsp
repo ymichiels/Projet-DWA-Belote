@@ -6,10 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!-- Page Content  -->
+<!-- Page Content -->
 <div id="content">
 
-    <%@include file="topbar.jsp"%>
+    <%@include file="topbar.jsp" %>
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -27,7 +27,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div id="game-played" class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombre de partie jouée</div>
+                                <div id="game-played" class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Nombre de partie jouée
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold">14</div>
                             </div>
                             <div class="col-auto">
@@ -44,7 +46,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div id="game-win" class="text-xs font-weight-bold text-success text-uppercase mb-1">Nombre de partie gagnée</div>
+                                <div id="game-win" class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Nombre de partie gagnée
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold">8</div>
                             </div>
                             <div class="col-auto">
@@ -61,7 +65,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div id="game-lost" class="text-xs font-weight-bold text-warning text-uppercase mb-1">Nombre de partie perdue</div>
+                                <div id="game-lost" class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Nombre de partie perdue
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold">6</div>
                             </div>
                             <div class="col-auto">
@@ -79,7 +85,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div id="game-average-win" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Moyenne de partie gagnée</div>
+                                <div id="game-average-win"
+                                     class="text-xs font-weight-bold text-primary text-uppercase mb-1">Moyenne de partie
+                                    gagnée
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold">6</div>
                             </div>
                             <div class="col-auto">
@@ -96,7 +105,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div id="game-average-score" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Moyenne de score par partie</div>
+                                <div id="game-average-score"
+                                     class="text-xs font-weight-bold text-primary text-uppercase mb-1">Moyenne de score
+                                    par partie
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold">55</div>
                             </div>
                             <div class="col-auto">
@@ -109,4 +121,4 @@
         </div>
     </div>
 </div>
-<!-- End of Main Content -->
+<!-- End of Page Content -->
