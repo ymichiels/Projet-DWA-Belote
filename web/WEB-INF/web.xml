@@ -15,13 +15,12 @@ version="2.4">
         <url-pattern>/dummy</url-pattern>
     </servlet-mapping>
 
-    <!-- les fichiers statique a transferer -->
-    <!-- FIXME: cc line dessus -->
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
+    <!-- met index.jsp en racine -->
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
