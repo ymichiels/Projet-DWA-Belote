@@ -68,7 +68,7 @@
                                     <div class="form-row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="inputCity">Ville</label>
-                                            <input type="text" class="form-control" id="inputCity" placeholder="Ville" required>
+                                            <input type="text" class="form-control rounded-pill" id="inputCity" placeholder="Ville" required>
                                         </div>
                                         <div class="col-sm-4 mb-3">
                                             <label for="selectSexe">Sexe</label>
@@ -79,24 +79,24 @@
                                         </div>
                                         <div class="col-sm-2 mb-3">
                                             <label for="inputAge">Age</label>
-                                            <input type="text" class="form-control" id="inputAge" placeholder="Age" required>
+                                            <input type="text" class="form-control rounded-pill" id="inputAge" placeholder="Age" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPseudo">Pseudo</label>
-                                        <input type="pseudo" class="form-control" id="inputPseudo" placeholder="Pseudo" required>
+                                        <input type="pseudo" class="form-control rounded-pill" id="inputPseudo" placeholder="Pseudo" required>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="inputPassword">Mot de passe</label>
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Mot de¨passe">
+                                            <input type="password" class="form-control rounded-pill" id="inputPassword" placeholder="Mot de¨passe">
                                         </div>
                                         <div class="col-sm-6 mb-3">
                                             <label for="inputRepeatPassword">Mot de passe</label>
-                                            <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Répéter le mot de passe">
+                                            <input type="password" class="form-control rounded-pill" id="inputRepeatPassword" placeholder="Répéter le mot de passe">
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary btn-block" type="submit">S'inscrire</button>
+                                    <button class="btn btn-primary btn-block rounded-pill" type="submit">S'inscrire</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">

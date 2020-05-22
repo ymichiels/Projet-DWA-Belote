@@ -69,13 +69,13 @@
                                 <form class="needs-validation" novalidate>
                                     <div class="form-group mb-3">
                                         <label for="InputPseudo">Pseudo</label>
-                                        <input type="pseudo" class="form-control" id="InputPseudo" aria-describedby="pseudoHelp" placeholder="Saisissez votre pseudo..." required autofocus>
+                                        <input type="pseudo" class="form-control rounded-pill" id="InputPseudo" aria-describedby="pseudoHelp" placeholder="Saisissez votre pseudo..." required autofocus>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="InputPseudo">Mot de passe</label>
-                                        <input type="password" class="form-control" id="InputPassword" placeholder="Mot de passe" required>
+                                        <input type="password" class="form-control rounded-pill" id="InputPassword" placeholder="Mot de passe" required>
                                     </div>
-                                    <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
+                                    <button id="btn_login" class="btn btn-lg btn-primary btn-block rounded-pill" type="submit">Se connecter</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">
