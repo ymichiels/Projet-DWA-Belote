@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Michiels Yan & Cebollado Johann">
-    <link rel="icon" href="src/main/medias/img/favicon/favicon.ico">
+    <link rel="icon" href="resources/medias/img/favicon/favicon.ico">
 
     <title>Belote - Inscription</title>
 
@@ -56,7 +56,7 @@
             <!-- Nested Row within Card Body -->
             <div class="row align-items-center">
                 <div class="col-lg-6 d-none d-lg-block">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" src="src/main/resources/medias/img/belote.jpg" alt="">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" src="resources/medias/img/belote.jpg" alt="">
                 </div>
                 <div class="col-lg6">
                     <div class="p-5">
