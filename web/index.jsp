@@ -15,7 +15,7 @@
         <%--TODO--%>
         <!--<link rel="icon" href="">-->
 
-        <title>Belote - Footer</title>
+        <title>Belote</title>
 
         <!-- Fontawesome core CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
