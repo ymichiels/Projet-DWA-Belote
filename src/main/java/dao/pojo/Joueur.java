@@ -1,5 +1,7 @@
 package dao.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -7,6 +9,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
+ *
  * @author jcebollado
  * inheritance based on http://www.thejavageek.com/2014/05/17/jpa-joined-inheritance-example/
  */
@@ -15,12 +18,12 @@ import java.util.Collection;
 @XmlRootElement
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries({
-        @NamedQuery(name = "Joueur.findAll", query = "SELECT j FROM Joueur j")
-        , @NamedQuery(name = "Joueur.findByJoueurId", query = "SELECT j FROM Joueur j WHERE j.joueurId = :joueurId")
-        , @NamedQuery(name = "Joueur.findByNbVictoire", query = "SELECT j FROM Joueur j WHERE j.nbVictoire = :nbVictoire")
-        , @NamedQuery(name = "Joueur.findByScoreMoyen", query = "SELECT j FROM Joueur j WHERE j.scoreMoyen = :scoreMoyen")
-        , @NamedQuery(name = "Joueur.findByNbPartie", query = "SELECT j FROM Joueur j WHERE j.nbPartie = :nbPartie")
-        , @NamedQuery(name = "Joueur.findByPseudo", query = "SELECT j FROM Joueur j WHERE j.pseudo = :pseudo")})
+    @NamedQuery(name = "Joueur.findAll", query = "SELECT j FROM Joueur j")
+    , @NamedQuery(name = "Joueur.findByJoueurId", query = "SELECT j FROM Joueur j WHERE j.joueurId = :joueurId")
+    , @NamedQuery(name = "Joueur.findByNbVictoire", query = "SELECT j FROM Joueur j WHERE j.nbVictoire = :nbVictoire")
+    , @NamedQuery(name = "Joueur.findByScoreMoyen", query = "SELECT j FROM Joueur j WHERE j.scoreMoyen = :scoreMoyen")
+    , @NamedQuery(name = "Joueur.findByNbPartie", query = "SELECT j FROM Joueur j WHERE j.nbPartie = :nbPartie")
+    , @NamedQuery(name = "Joueur.findByPseudo", query = "SELECT j FROM Joueur j WHERE j.pseudo = :pseudo")})
 public class Joueur implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,7 +33,7 @@ public class Joueur implements Serializable {
             name = "joueurPkGen",
             pkColumnName = "SEQ_NAME",
             pkColumnValue = "joueur",
-            valueColumnName = "SEQ_COUNT",
+            valueColumnName = "SEQ_COUNT", 
             table = "SEQUENCE"
     )
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "joueurPkGen")
@@ -125,6 +128,7 @@ public class Joueur implements Serializable {
         this.robot = robot;
     }*/
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Plis> getPlisCollection() {
         return plisCollection;
@@ -134,6 +138,7 @@ public class Joueur implements Serializable {
         this.plisCollection = plisCollection;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Partie> getPartieCollection() {
         return partieCollection;
@@ -143,6 +148,7 @@ public class Joueur implements Serializable {
         this.partieCollection = partieCollection;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Partie> getPartieCollection1() {
         return partieCollection1;
@@ -152,6 +158,7 @@ public class Joueur implements Serializable {
         this.partieCollection1 = partieCollection1;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Partie> getPartieCollection2() {
         return partieCollection2;
@@ -161,6 +168,7 @@ public class Joueur implements Serializable {
         this.partieCollection2 = partieCollection2;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Partie> getPartieCollection3() {
         return partieCollection3;
@@ -170,6 +178,7 @@ public class Joueur implements Serializable {
         this.partieCollection3 = partieCollection3;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Main> getMainCollection() {
         return mainCollection;
@@ -179,6 +188,7 @@ public class Joueur implements Serializable {
         this.mainCollection = mainCollection;
     }
 
+    @JsonIgnore
     @XmlTransient
     public Collection<Manche> getMancheCollection() {
         return mancheCollection;
@@ -220,5 +230,5 @@ public class Joueur implements Serializable {
     public String toString() {
         return "dao.pojo.Joueur[ joueurId=" + joueurId + " ]";
     }
-
+    
 }
