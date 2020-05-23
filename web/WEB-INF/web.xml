@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
-    <display-name>Application belote</display-name>
+    <display-name>Belote App</display-name>
     <description>Une application gérant un serveur supportant des parties de belote.</description>
 
     <!-- met login.jsp en racine -->
@@ -35,6 +35,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
+        <servlet-class></servlet-class>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
