@@ -67,6 +67,15 @@ public enum Carte {
         }
     }
 
+    public static Carte getCarte(Couleur couleur, Valeur valeur) {
+        for(Carte carte : values()) {
+            if(carte.valeur == valeur && carte.couleur == couleur) {
+                return carte;
+            }
+        }
+        return null;
+    }
+
     public enum Couleur {
         PIQUE,
         TREFLE,
