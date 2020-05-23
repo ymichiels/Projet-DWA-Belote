@@ -7,24 +7,25 @@
     <description>Une application gérant un serveur supportant des parties de belote.</description>
 
     <!-- met login.jsp en racine -->
-    <welcome-file-list>
-        <welcome-file>views/login.jsp</welcome-file>
-    </welcome-file-list>
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>/login.jsp</welcome-file>-->
+<!--    </welcome-file-list>-->
 
-    <filter>
-        <filter-name>ClickLoginUserFilter</filter-name>
-        <filter-class>filter.filter</filter-class>
-    </filter>
+<!--    <filter>-->
+<!--        <filter-name>ClickLoginUserFilter</filter-name>-->
+<!--        <filter-class>filter.filter</filter-class>-->
+<!--    </filter>-->
 
-    <filter-mapping>
-        <filter-name>ClickLoginUserFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+<!--    <filter-mapping>-->
+<!--        <filter-name>ClickLoginUserFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
 
     <servlet>
         <servlet-name>ADummyPage</servlet-name>
         <jsp-file>/dummy.jsp</jsp-file>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>ADummyPage</servlet-name>
         <url-pattern>/dummy</url-pattern>
@@ -43,7 +44,6 @@
         <servlet-name>Register</servlet-name>
         <jsp-file>/register.jsp</jsp-file>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>

@@ -12,10 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "loginServlet", urlPatterns = "/login")
+@WebServlet(name = "loginServlet", urlPatterns = "/")
 public class loginServlet extends HttpServlet {
 
     //Modifie les informations pour l'affichage de notre site
@@ -27,34 +28,41 @@ public class loginServlet extends HttpServlet {
     //Récupère informations passées dans un formulaire
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String pseudo = req.getParameter("pseudo");
-        String password = req.getParameter("password");
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction trans =  em.getTransaction();
-        trans.begin();
-        ManagerHumain mh = new ManagerHumain(em);
-        List<Humain> match = mh.findByPseudo(pseudo);
+        try {
+            //HttpSession session = req.getSession();
+            String pseudo = req.getParameter("pseudo");
+            String password = req.getParameter("password");
+
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
+            EntityManager em = emf.createEntityManager();
+            EntityTransaction trans = em.getTransaction();
+            trans.begin();
+            ManagerHumain mh = new ManagerHumain(em);
+            List<Humain> match = mh.findByPseudo(pseudo);
 
 
-        if(match.isEmpty()){
-            // pas de joueur correspondant
+            if (match.isEmpty()) {
+                // pas de joueur correspondant
 
-        } else {
-            Humain hum = match.get(0);
-            String formPasswordName = "password";
-            if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
-                req.getSession().setAttribute("user", match.get(0).getPseudo());
-                resp.sendRedirect("/WEB-INF/index.jsp");
+            } else {
+                Humain hum = match.get(0);
+                String formPasswordName = "password";
+                if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
+                    req.getSession().setAttribute("user", match.get(0).getPseudo());
+                    resp.sendRedirect("/WEB-INF/index.jsp");
+                } else {
+                    // mauvais mot de passe
+                    resp.sendRedirect("/WEB-INF/common/loginErrorModal.jsp");
+                }
             }
-            else{
-                // mauvais mot de passe
-                resp.sendRedirect("/WEB-INF/common/loginErrorModal.jsp");
-            }
+            trans.commit();
+
+        }catch (Exception ex) {
+            // System.err.println("Initial SessionFactory creation failed.");
+            ex.printStackTrace();
+            System.exit(0);
         }
-
-        trans.commit();
     }
 }
 
