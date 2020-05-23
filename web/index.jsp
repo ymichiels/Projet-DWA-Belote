@@ -27,7 +27,7 @@
 <div class="wrapper">
     <%@include file="sidebar.jsp" %>
     <%@include file="dashboard_content.jsp" %>
-    <%@include file="footer.jsp" %>
+    <%@include file="logoutModal.jsp" %>
 
     <!-- Jquery core JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
