@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "IndexServlet", urlPatterns = "/index")
+@WebServlet(name = "IndexServlet", urlPatterns = "/index.html")
 public class IndexServlet extends HttpServlet {
 
     //Modifie les informations pour l'affichage de notre site
