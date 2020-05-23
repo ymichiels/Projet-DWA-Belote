@@ -1,7 +1,7 @@
 package message.partie.serveur;
 
 import dao.pojo.Carte;
-import logic.Tapis;
+import logic.party.Tapis;
 
 import java.util.List;
 

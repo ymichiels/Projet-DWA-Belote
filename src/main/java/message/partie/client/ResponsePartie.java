@@ -1,6 +1,6 @@
 package message.partie.client;
 
-import logic.Position;
+import logic.utils.Position;
 
 abstract public class ResponsePartie {
     protected Position position;

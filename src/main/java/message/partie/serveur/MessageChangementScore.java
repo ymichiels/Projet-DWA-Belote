@@ -1,6 +1,6 @@
 package message.partie.serveur;
 
-import logic.Score;
+import logic.utils.Score;
 
 public class MessageChangementScore extends MessagePartie {
     protected Score changement;

@@ -3,7 +3,7 @@ package message.partie.serveur;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import dao.pojo.Carte;
-import logic.Position;
+import logic.utils.Position;
 
 import java.util.List;
 

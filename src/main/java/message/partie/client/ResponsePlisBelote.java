@@ -1,19 +1,19 @@
 package message.partie.client;
 
 import dao.pojo.Carte;
-import logic.Play;
+import dao.pojo.EvenementPlis;
 
 public class ResponsePlisBelote extends ResponsePartie {
     /**
      * Peut être null, "belote" ou "rebelote"
      */
-    private Play.Note note;
+    private EvenementPlis note;
     private Carte carte;
 
-    public Play.Note getNote() {
+    public EvenementPlis getNote() {
         return note;
     }
-    public void setNote(Play.Note note) {
+    public void setNote(EvenementPlis note) {
         this.note = note;
     }
 
