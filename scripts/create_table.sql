@@ -52,7 +52,8 @@ CREATE TABLE `manche` (
   `joueur_prenant` int(11) DEFAULT NULL,
   `atout_initial` varchar(13) DEFAULT NULL,
   `atout_final` varchar(13) DEFAULT NULL,
-  `point_manche` smallint(6),
+  `point_manche_est_ouest` smallint(6),
+  `point_manche_nort_sud` smallint(6),
   PRIMARY KEY (`partie_id`, `manche_nb`),
   FOREIGN KEY (`partie_id`) REFERENCES `partie` (`partie_id`),
   FOREIGN KEY (`joueur_prenant`) REFERENCES `joueur` (`joueur_id`)
