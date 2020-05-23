@@ -19,7 +19,8 @@ public class ManagerManche extends ManagerBase {
         Manche manche = new Manche();
         manche.setManchePK(new ManchePK(partie.getPartieId(), (short) (partie.getMancheCollection().size() + 1)));
         manche.setAtoutInitial(atoutInitial);
-        manche.setPointManche((short) 0);
+        manche.setPointMancheNordSud((short) 0);
+        manche.setPointMancheEstOuest((short) 0);
 
         this.getManager().persist(manche);
 
