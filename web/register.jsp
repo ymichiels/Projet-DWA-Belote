@@ -58,7 +58,7 @@
                 <div class="col-lg-6 d-none d-lg-block">
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" src="medias/img/belote.jpg" alt="">
                 </div>
-                <div class="col-lg6">
+                <div class="col-lg-6">
                     <div class="p-5">
                         <div class="text-center">
                             <h1 class="h4 mb-4">Créer un nouveau compte !</h1>
@@ -106,7 +106,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="login.html">J'ai déja un compte ? Se connecter !</a>
+                            <a class="small" href="login.jsp">J'ai déja un compte ? Se connecter !</a>
                         </div>
                     </div>
                 </div>
