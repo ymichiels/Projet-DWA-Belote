@@ -11,9 +11,8 @@ import java.util.concurrent.Future;
 public class IABasic extends Joueur {
     private Random random = new Random();
 
-    public void informeScore(Score diff, Score total, Position position) {}
-
-    public Future<Play> joueCarte(List<Carte> main, List<Carte> jouable, Plis plis, Carte.Couleur atout, Position position) {
+    @Override
+    public Future<Play> joueCarte(List<Carte> jouable, Plis plis) {
         Carte carte = jouable.get(random.nextInt(jouable.size()));
         Play play = new Play();
         play.setCarte(carte);
@@ -22,12 +21,12 @@ public class IABasic extends Joueur {
     }
 
     // 25% de chance de prendre l'atout
-    public Future<Boolean> proposeAtout(List<Carte> main, Carte proposition, Position position) {
+    public Future<Boolean> proposeAtout(Carte proposition) {
         return CompletableFuture.completedFuture(random.nextInt(4) == 0);
     }
 
     // 25% de chance de choisir une carte aléatoire comme atout
-    public Future<Carte> remplaceAtout(List<Carte> main, Carte ancienAtout, Position position) {
+    public Future<Carte> remplaceAtout(Carte ancienAtout) {
         if(random.nextInt(4) == 0){
             return CompletableFuture.completedFuture(main.get(random.nextInt(main.size())));
         }

@@ -2,55 +2,81 @@ package logic;
 
 import dao.pojo.Carte;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class Partie {
-    private Random rand = new Random();
+public class Manche {
+    private Partie partie;
     private List<Carte> deck = new ArrayList<>(32);
-    private SidedStorage<Joueur> joueurs = new SidedStorage<>();
 
-    public Random getRand() {
-        return rand;
+    public Manche(Partie partie) {
+        this.partie = partie;
     }
 
-    public SidedStorage<Joueur> getJoueurs() {
-        return joueurs;
+    public Partie getPartie() {
+        return partie;
     }
 
-    // setup la partie
-    public void jouerPartie(Joueur north, Joueur est, Joueur sud, Joueur ouest) {
-        joueurs.setNord(north);
-        joueurs.setEst(est);
-        joueurs.setSud(sud);
-        joueurs.setOuest(ouest);
+    public Score jouer() throws ExecutionException, InterruptedException{
 
-        // fixme;  je suis pas en etat de coder le coeud de l'application :[.
-        // globalement, il faudra faire bouger des trucs qui sont en paramettre en attribut et les mettres dans joueur (Position et atout)
-        // Ajouter la liste de carte directement dans la classe joueur
-        // bref, avoir logic.Joueur correspondre à un jour concret
-    }
-
-    public void jouerManche() throws ExecutionException, InterruptedException {
         // reset deck  & shuffle
         deck = Arrays.asList(Carte.values());
         Collections.shuffle(deck);
 
         // direction du joueur qui distribut
-        Position distrib = Position.random(rand);
+        Position distrib = Position.random(partie.getRand());
         // donne 3 puis 2 cartes a tout le monde
         for(Position courrant=distrib.next(); courrant != distrib; courrant = courrant.next()) {
-            giveCard(joueurs.getSide(courrant), 3);
+            giveCard(partie.getJoueurs().getSide(courrant), 3);
         }
         for(Position courrant=distrib.next(); courrant != distrib; courrant = courrant.next()) {
-            giveCard(joueurs.getSide(courrant), 2);
+            giveCard(partie.getJoueurs().getSide(courrant), 2);
         }
 
+        // tente de récuperer un atout ou null
+        Carte atout = selectAtout(distrib);
 
+        Score score = new Score();
+        // 0 points, on annule la manche
+        if(atout == null) {
+            return score;
+        }
+
+        for(int i=0; i<8; ++i) {
+            Plis plis = new Plis(distrib.next());
+            do {
+                Position courrant = plis.getCourrante();
+                Joueur joueur = partie.getJoueurs().getSide(courrant);
+                Play play = joueur.joueCarte(plis.canPlay(joueur.getMain(), atout.getCouleur()), plis).get();
+                if(play.getNote() != null) {
+                    plis.setNote(play.getNote());
+                }
+                plis.getTapis().setSide(courrant, play.getCarte());
+
+                // informe les autres joueur de l'état du tapis à la fin du tour
+                for(Position notCourrant = courrant.next(); notCourrant != courrant; notCourrant = courrant.next()){
+                    partie.getJoueurs().getSide(notCourrant).finAutreTour(plis, notCourrant);
+                }
+            } while (!plis.isDone());
+        }
+
+        return score;
     }
 
+    /**
+     * Donne les {@param nbCarte} au joueur {@param joueur}.
+     * @param joueur le joueur auquel donnerles cartes
+     * @param nbCarte le nombre de carte a donner
+     */
     public void giveCard(Joueur joueur, int nbCarte){
-        for(int i=0; i<nbCarte && !deck.isEmpty(); i++) {
+        for(int i=0; i<nbCarte; i++) {
+            if(deck.isEmpty()){
+                System.err.println("Ran out of card. Not normal.");
+                return;
+            }
             Carte last = deck.remove(deck.size()-1);
             joueur.addCarte(last);
         }
@@ -70,7 +96,7 @@ public class Partie {
 
         // vérifie si quelqu'un veux bien l'atout
         for(Position courrant=distrib.next(); courrant != distrib; courrant = courrant.next()) {
-            Joueur joueur = joueurs.getSide(courrant);
+            Joueur joueur = partie.getJoueurs().getSide(courrant);
             Boolean pris = joueur.proposeAtout(propose).get();
             if(pris != null && pris) {
                 distributCarte(propose, courrant);
@@ -79,7 +105,7 @@ public class Partie {
         }
         // vérifie si quelqu'un veux bien proposé un atout
         for(Position courrant=distrib.next(); courrant != distrib; courrant = courrant.next()){
-            Joueur joueur = joueurs.getSide(courrant);
+            Joueur joueur = partie.getJoueurs().getSide(courrant);
             Carte carte = joueur.remplaceAtout(propose).get();
             // s'assure que le joueur possede la carte qu'il propose
             assert joueur.hasCarte(carte);
@@ -93,10 +119,10 @@ public class Partie {
     }
 
     public void distributCarte(Carte propose, Position preneur) {
-        Joueur joueurPreneur = joueurs.getSide(preneur);
+        Joueur joueurPreneur = partie.getJoueurs().getSide(preneur);
         joueurPreneur.addCarte(propose);
         for(Position courrant = preneur.next(); preneur != courrant; courrant = preneur.next()) {
-            giveCard(joueurs.getSide(courrant), 3);
+            giveCard(partie.getJoueurs().getSide(courrant), 3);
         }
         giveCard(joueurPreneur, 2);
     }

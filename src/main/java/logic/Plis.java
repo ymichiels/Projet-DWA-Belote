@@ -11,6 +11,7 @@ public class Plis {
     protected Position debut;
     protected Position courrante;
     protected Tapis tapis;
+    protected Play.Note note;
 
     public Plis(Position debut) {
         this.debut = debut;
@@ -34,6 +35,13 @@ public class Plis {
         return tapis;
     }
 
+    public Play.Note getNote() {
+        return note;
+    }
+    public void setNote(Play.Note note) {
+        this.note = note;
+    }
+
     /**
      * Produit la liste des cartes jouables pour un plis donnée.
      * NB! la valeur retourner peut être une référence vers {@param listCarte}
@@ -47,11 +55,11 @@ public class Plis {
             return listCarte;
         }
         // récupère la couleur demander
-        Carte.Couleur demander = tapis.getCarte(debut).getCouleur();
+        Carte.Couleur demander = tapis.getSide(debut).getCouleur();
 
         // le partenaire domine le plis
-        Carte best = tapis.getCarte(tapis.winingSide(atout, getDemander()));
-        Carte cartePartenaire = tapis.getCarte(courrante.opposite());
+        Carte best = tapis.getSide(tapis.winingSide(atout, getDemander()));
+        Carte cartePartenaire = tapis.getSide(courrante.opposite());
 
         if(cartePartenaire != null
                 && !best.obtenirCategory(atout, demander).estMeilleur(cartePartenaire.obtenirCategory(atout, demander))
@@ -105,29 +113,30 @@ public class Plis {
     }
 
     public Carte.Couleur getDemander() {
-        return tapis.getCarte(debut).getCouleur();
+        return tapis.getSide(debut).getCouleur();
     }
 
     public void joueCarte(Carte carte) {
-        this.tapis.setCarte(courrante, carte);
+        this.tapis.setSide(courrante, carte);
         courrante = courrante.next();
     }
 
     /**
      * Retourne un object de type dao.pojo contenant les bonnes cartes au bonnes position.
      * Le joueur débutant la manche doit encore être indiqué encore a ajouter.
+     * FIXME extract into dedicated serialization
      * @return un plis serializable dans la base de données.
      */
     public dao.pojo.Plis asDao(ManchePK mpk, byte pli) {
         dao.pojo.Plis plis = new dao.pojo.Plis(new PlisPK(mpk.getPartieId(), mpk.getMancheNb(), pli));
         Position pos = this.debut;
-        plis.setCarte1(this.tapis.getCarte(pos));
+        plis.setCarte1(this.tapis.getSide(pos));
         pos = pos.next();
-        plis.setCarte2(this.tapis.getCarte(pos));
+        plis.setCarte2(this.tapis.getSide(pos));
         pos = pos.next();
-        plis.setCarte3(this.tapis.getCarte(pos));
+        plis.setCarte3(this.tapis.getSide(pos));
         pos = pos.next();
-        plis.setCarte4(this.tapis.getCarte(pos));
+        plis.setCarte4(this.tapis.getSide(pos));
         return plis;
     }
 }

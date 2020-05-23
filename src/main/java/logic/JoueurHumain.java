@@ -25,26 +25,26 @@ public class JoueurHumain extends Joueur {
     }
 
     @Override
-    public void informeScore(Score diff, Score total, Position position) {
+    public void informeScore(Score diff, Score total) {
         ObjectMapper om = new ObjectMapper();
         MessageChangementScore mcs = new MessageChangementScore();
         mcs.setChangement(diff);
         mcs.setTotal(total);
-        mcs.setPosition(position);
+        mcs.setPosition(pos);
         mcs.setMain(null);
         mcs.setTour(null);
         wsp.send(mcs);
     }
 
     @Override
-    public Future<Play> joueCarte(List<Carte> main, List<Carte> jouable, Plis plis, Carte.Couleur atout, Position position) {
+    public Future<Play> joueCarte(List<Carte> jouable, Plis plis) {
         MessagePlisBelote mpb = new MessagePlisBelote();
         mpb.setAtout(atout);
         mpb.setCarteJouable(jouable);
         mpb.setMain(main);
         mpb.setTapis(plis.getTapis());
-        mpb.setTour(position);
-        mpb.setPosition(position);
+        mpb.setTour(pos);
+        mpb.setPosition(pos);
         wsp.send(mpb);
         // await client response... I think
         return CompletableFuture.supplyAsync(() -> {
@@ -69,24 +69,24 @@ public class JoueurHumain extends Joueur {
     }
 
     @Override
-    public void finAutreTour(List<Carte> main, Plis plis, Carte.Couleur atout, Position position, Position tour) {
+    public void finAutreTour(Plis plis, Position tour) {
         MessagePlisBelote mpb = new MessagePlisBelote();
         mpb.setAtout(atout);
         mpb.setCarteJouable(new ArrayList<>());
         mpb.setMain(main);
         mpb.setTapis(plis.getTapis());
         mpb.setTour(tour);
-        mpb.setPosition(position);
+        mpb.setPosition(pos);
         wsp.send(mpb);
     }
 
     @Override
-    public Future<Boolean> proposeAtout(List<Carte> main, Carte proposition, Position position) {
+    public Future<Boolean> proposeAtout(Carte proposition) {
         MessageSelectionAtout msa = new MessageSelectionAtout();
         msa.setMain(main);
         msa.setProposition(proposition);
-        msa.setPosition(position);
-        msa.setTour(position);
+        msa.setPosition(pos);
+        msa.setTour(pos);
         wsp.send(msa);
         return CompletableFuture.supplyAsync(() -> {
             ResponsePartie rp;
@@ -107,12 +107,22 @@ public class JoueurHumain extends Joueur {
     }
 
     @Override
-    public Future<Carte> remplaceAtout(List<Carte> main, Carte ancienAtout, Position position) {
+    public void finSelectionAtout(Carte atout, boolean pris, Position tour) {
+        MessageSelectionAtout msa = new MessageSelectionAtout();
+        msa.setMain(main);
+        msa.setProposition(atout);
+        msa.setPosition(pos);
+        msa.setTour(tour);
+        wsp.send(msa);
+    }
+
+    @Override
+    public Future<Carte> remplaceAtout(Carte ancienAtout) {
         MessageRemplacementAtout mra = new MessageRemplacementAtout();
         mra.setAncientAtout(ancienAtout);
         mra.setMain(main);
-        mra.setPosition(position);
-        mra.setTour(position);
+        mra.setPosition(pos);
+        mra.setTour(pos);
         wsp.send(mra);
         return CompletableFuture.supplyAsync(() -> {
             ResponsePartie rp;
@@ -130,5 +140,15 @@ public class JoueurHumain extends Joueur {
                 }
             }
         });
+    }
+
+    @Override
+    public void finRemplacementAtout(Carte carte, Position tour) {
+        MessageRemplacementAtout mra = new MessageRemplacementAtout();
+        mra.setAncientAtout(carte);
+        mra.setMain(main);
+        mra.setPosition(pos);
+        mra.setTour(tour);
+        wsp.send(mra);
     }
 }

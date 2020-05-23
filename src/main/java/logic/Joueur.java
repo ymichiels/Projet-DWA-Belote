@@ -2,14 +2,50 @@ package logic;
 
 import dao.pojo.Carte;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 
 abstract public class Joueur {
-    abstract public void informeScore(Score diff, Score total, Position position);
-    abstract public Future<Play> joueCarte(List<Carte> main, List<Carte> jouable, Plis plis, Carte.Couleur atout, Position position);
-    public void finAutreTour(List<Carte> main, Plis plis, Carte.Couleur atout, Position position, Position tour) {}
-    abstract public Future<Boolean> proposeAtout(List<Carte> main, Carte proposition, Position position);
-    // TODO interface pacive pour log proposeAttout et remplaceAtout quand d'autre joueur le font
-    abstract public Future<Carte> remplaceAtout(List<Carte> main, Carte ancienAtout, Position position);
+    protected List<Carte> main = new ArrayList<>();
+    protected Position pos = Position.Nord;
+    protected Carte.Couleur atout = Carte.Couleur.CARREAU;
+
+    public void resetMain() {
+        this.main.clear();
+    }
+
+    public void addCarte(Carte carte) {
+        this.main.add(carte);
+    }
+
+    public boolean hasCarte(Carte carte) {
+        return main.contains(carte);
+    }
+
+    public List<Carte> getMain() {
+        return main;
+    }
+
+    public Position getPos() {
+        return pos;
+    }
+    public void setPos(Position pos) {
+        this.pos = pos;
+    }
+
+    public void setAtout(Carte.Couleur atout) {
+        this.atout = atout;
+    }
+    public Carte.Couleur getAtout() {
+        return atout;
+    }
+
+    public void informeScore(Score diff, Score total) {}
+    abstract public Future<Play> joueCarte(List<Carte> jouable, Plis plis);
+    public void finAutreTour(Plis plis, Position tour) {}
+    abstract public Future<Boolean> proposeAtout(Carte proposition);
+    public void finSelectionAtout(Carte atout, boolean pris, Position tour) {}
+    abstract public Future<Carte> remplaceAtout(Carte ancienAtout);
+    public void finRemplacementAtout(Carte carte, Position tour) {}
 }
