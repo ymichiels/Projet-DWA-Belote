@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "loginServlet", urlPatterns = "/login/")
-public class loginServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = "/login/")
+public class LoginServlet extends HttpServlet {
 
     //Modifie les informations pour l'affichage de notre site
     @Override
