@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+<%@include file="../common/loginErrorModal.jsp" %>
 <!-- End of Login -->
 
 <!-- Jquery core JavaScript-->
