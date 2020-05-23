@@ -21,6 +21,7 @@ public class IndexServlet extends HttpServlet {
     //Modifie les informations pour l'affichage de notre site
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
     }
 
     //Récupère informations passées dans un formulaire

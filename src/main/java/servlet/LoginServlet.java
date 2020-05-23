@@ -41,7 +41,6 @@ public class LoginServlet extends HttpServlet {
             ManagerHumain mh = new ManagerHumain(em);
             List<Humain> match = mh.findByPseudo(pseudo);
 
-
             if (match.isEmpty()) {
                 // pas de joueur correspondant
 
@@ -57,7 +56,6 @@ public class LoginServlet extends HttpServlet {
                 }
             }
             trans.commit();
-
         }catch (Exception ex) {
             // System.err.println("Initial SessionFactory creation failed.");
             ex.printStackTrace();

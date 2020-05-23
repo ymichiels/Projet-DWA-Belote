@@ -68,7 +68,7 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/editProfile">
                             <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
                             Réglages
                         </a>

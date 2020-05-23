@@ -30,7 +30,8 @@
 <body>
 <div class="wrapper">
     <%@include file="common/sidebar.jsp" %>
-    <%@include file="common/dashboard_content.jsp" %>
+    <div id="myContent"><%@include file="common/dashboard_content.jsp"%></div>
     <%@include file="common/logoutModal.jsp" %>
+</div>
 </body>
 </html>

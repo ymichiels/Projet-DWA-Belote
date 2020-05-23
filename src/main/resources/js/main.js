@@ -163,3 +163,13 @@ $(document).ready(function() {
     $('#dataTable').DataTable();
 });
 
+/*
+ * ChangeDynamicContentJSP
+ */
+
+// $("#idButton").click(function() {
+//     var container = document.getElementById("myContent");
+//
+//
+//     return false;
+// });
