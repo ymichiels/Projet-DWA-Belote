@@ -6,7 +6,6 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 /**
- *
  * @author jcebollado
  */
 @Embeddable
@@ -87,5 +86,5 @@ public class PlisPK implements Serializable {
     public String toString() {
         return "dao.pojo.PlisPK[ partieId=" + partieId + ", mancheNb=" + mancheNb + ", plisNb=" + plisNb + " ]";
     }
-    
+
 }

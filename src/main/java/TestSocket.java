@@ -60,7 +60,7 @@ public class TestSocket {
     }
 
     @OnError
-    public void onError(Throwable t) throws  Throwable {
+    public void onError(Throwable t) throws Throwable {
         // TODO error handling
     }
 }

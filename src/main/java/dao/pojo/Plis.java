@@ -5,22 +5,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- *
  * @author jcebollado
  */
 @Entity
 @Table(name = "plis")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Plis.findAll", query = "SELECT p FROM Plis p")
-    , @NamedQuery(name = "Plis.findByPartieId", query = "SELECT p FROM Plis p WHERE p.plisPK.partieId = :partieId")
-    , @NamedQuery(name = "Plis.findByMancheNb", query = "SELECT p FROM Plis p WHERE p.plisPK.mancheNb = :mancheNb")
-    , @NamedQuery(name = "Plis.findByPlisNb", query = "SELECT p FROM Plis p WHERE p.plisPK.plisNb = :plisNb")
-    , @NamedQuery(name = "Plis.findByCarte1", query = "SELECT p FROM Plis p WHERE p.carte1 = :carte1")
-    , @NamedQuery(name = "Plis.findByCarte2", query = "SELECT p FROM Plis p WHERE p.carte2 = :carte2")
-    , @NamedQuery(name = "Plis.findByCarte3", query = "SELECT p FROM Plis p WHERE p.carte3 = :carte3")
-    , @NamedQuery(name = "Plis.findByCarte4", query = "SELECT p FROM Plis p WHERE p.carte4 = :carte4")
-    , @NamedQuery(name = "Plis.findByNote", query = "SELECT p FROM Plis p WHERE p.note = :note")})
+        @NamedQuery(name = "Plis.findAll", query = "SELECT p FROM Plis p")
+        , @NamedQuery(name = "Plis.findByPartieId", query = "SELECT p FROM Plis p WHERE p.plisPK.partieId = :partieId")
+        , @NamedQuery(name = "Plis.findByMancheNb", query = "SELECT p FROM Plis p WHERE p.plisPK.mancheNb = :mancheNb")
+        , @NamedQuery(name = "Plis.findByPlisNb", query = "SELECT p FROM Plis p WHERE p.plisPK.plisNb = :plisNb")
+        , @NamedQuery(name = "Plis.findByCarte1", query = "SELECT p FROM Plis p WHERE p.carte1 = :carte1")
+        , @NamedQuery(name = "Plis.findByCarte2", query = "SELECT p FROM Plis p WHERE p.carte2 = :carte2")
+        , @NamedQuery(name = "Plis.findByCarte3", query = "SELECT p FROM Plis p WHERE p.carte3 = :carte3")
+        , @NamedQuery(name = "Plis.findByCarte4", query = "SELECT p FROM Plis p WHERE p.carte4 = :carte4")
+        , @NamedQuery(name = "Plis.findByNote", query = "SELECT p FROM Plis p WHERE p.note = :note")})
 public class Plis implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,8 +41,8 @@ public class Plis implements Serializable {
     @Column(name = "note")
     private EvenementPlis note;
     @JoinColumns({
-        @JoinColumn(name = "partie_id", referencedColumnName = "partie_id", insertable = false, updatable = false)
-        , @JoinColumn(name = "manche_nb", referencedColumnName = "manche_nb", insertable = false, updatable = false)})
+            @JoinColumn(name = "partie_id", referencedColumnName = "partie_id", insertable = false, updatable = false)
+            , @JoinColumn(name = "manche_nb", referencedColumnName = "manche_nb", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Manche manche;
     @JoinColumn(name = "joueur_debut", referencedColumnName = "joueur_id")
@@ -149,5 +148,5 @@ public class Plis implements Serializable {
     public String toString() {
         return "dao.pojo.Plis[ plisPK=" + plisPK + " ]";
     }
-    
+
 }

@@ -6,7 +6,6 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 /**
- *
  * @author jcebollado
  */
 @Embeddable
@@ -71,5 +70,5 @@ public class ManchePK implements Serializable {
     public String toString() {
         return "dao.pojo.ManchePK[ partieId=" + partieId + ", mancheNb=" + mancheNb + " ]";
     }
-    
+
 }

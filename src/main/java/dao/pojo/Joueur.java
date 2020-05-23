@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- *
  * @author jcebollado
  * inheritance based on http://www.thejavageek.com/2014/05/17/jpa-joined-inheritance-example/
  */
@@ -18,12 +17,12 @@ import java.util.Collection;
 @XmlRootElement
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries({
-    @NamedQuery(name = "Joueur.findAll", query = "SELECT j FROM Joueur j")
-    , @NamedQuery(name = "Joueur.findByJoueurId", query = "SELECT j FROM Joueur j WHERE j.joueurId = :joueurId")
-    , @NamedQuery(name = "Joueur.findByNbVictoire", query = "SELECT j FROM Joueur j WHERE j.nbVictoire = :nbVictoire")
-    , @NamedQuery(name = "Joueur.findByScoreMoyen", query = "SELECT j FROM Joueur j WHERE j.scoreMoyen = :scoreMoyen")
-    , @NamedQuery(name = "Joueur.findByNbPartie", query = "SELECT j FROM Joueur j WHERE j.nbPartie = :nbPartie")
-    , @NamedQuery(name = "Joueur.findByPseudo", query = "SELECT j FROM Joueur j WHERE j.pseudo = :pseudo")})
+        @NamedQuery(name = "Joueur.findAll", query = "SELECT j FROM Joueur j")
+        , @NamedQuery(name = "Joueur.findByJoueurId", query = "SELECT j FROM Joueur j WHERE j.joueurId = :joueurId")
+        , @NamedQuery(name = "Joueur.findByNbVictoire", query = "SELECT j FROM Joueur j WHERE j.nbVictoire = :nbVictoire")
+        , @NamedQuery(name = "Joueur.findByScoreMoyen", query = "SELECT j FROM Joueur j WHERE j.scoreMoyen = :scoreMoyen")
+        , @NamedQuery(name = "Joueur.findByNbPartie", query = "SELECT j FROM Joueur j WHERE j.nbPartie = :nbPartie")
+        , @NamedQuery(name = "Joueur.findByPseudo", query = "SELECT j FROM Joueur j WHERE j.pseudo = :pseudo")})
 public class Joueur implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,7 +32,7 @@ public class Joueur implements Serializable {
             name = "joueurPkGen",
             pkColumnName = "SEQ_NAME",
             pkColumnValue = "joueur",
-            valueColumnName = "SEQ_COUNT", 
+            valueColumnName = "SEQ_COUNT",
             table = "SEQUENCE",
             allocationSize = 1
     )
@@ -231,5 +230,5 @@ public class Joueur implements Serializable {
     public String toString() {
         return "dao.pojo.Joueur[ joueurId=" + joueurId + " ]";
     }
-    
+
 }

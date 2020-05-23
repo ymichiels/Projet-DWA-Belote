@@ -1,3 +1,7 @@
+/*
+ * Chart.js
+ */
+
 // Pie Chart Example
 var ctxPie = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctxPie, {
@@ -103,3 +107,13 @@ var myBarChart = new Chart(ctxBar, {
         },
     }
 });
+
+/*
+ * DataTables
+ */
+
+// Call the dataTables jQuery plugin
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+});
+

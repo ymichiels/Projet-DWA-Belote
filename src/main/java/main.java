@@ -1,4 +1,5 @@
 import dao.pojo.*;
+
 import javax.persistence.*;
 
 public class main {
@@ -36,15 +37,15 @@ public class main {
             em.merge(hum);
 
             trans.commit();
-        } catch(PersistenceException err) {
+        } catch (PersistenceException err) {
             try {
-                if(trans != null) {
+                if (trans != null) {
                     trans.rollback();
                 }
-            } catch(Exception rollErr) {
+            } catch (Exception rollErr) {
                 System.err.println(rollErr);
             }
-            throw(err);
+            throw (err);
         }
         // TODO code application logic here
     }
