@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <eclipselink.version>2.7.6</eclipselink.version>
         <!--<mysql-connector-java.version>8.0.18</mysql-connector-java.version>-->
-        <!--<java.version>1.8</java.version>-->
+        <java.version>1.8</java.version>
         <javax.persistence.version>2.2.1</javax.persistence.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <javax.servlet.version>4.0.1</javax.servlet.version>
@@ -69,9 +69,27 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+
+        <!-- Dependencies future -->
+        <dependency>
+            <groupId>javax.enterprise.concurrent</groupId>
+            <artifactId>javax.enterprise.concurrent-api</artifactId>
+            <version>1.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
+            <!-- Nécessaire pour disposé des api sur les future-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.3</version>

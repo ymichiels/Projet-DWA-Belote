@@ -14,7 +14,7 @@
         <servlet-name>ADummyPage</servlet-name>
         <url-pattern>/dummy</url-pattern>
     </servlet-mapping>
-
+<!--
     <servlet>
         <servlet-name>Index</servlet-name>
         <jsp-file>/index.jsp</jsp-file>
@@ -50,7 +50,7 @@
         <servlet-name>EditPlayer</servlet-name>
         <url-pattern>/edit</url-pattern>
     </servlet-mapping>
-
+-->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 // défini l'URL du socket
-@ServerEndpoint("/ws")
+@ServerEndpoint("/ws/dummy")
 public class TestSocket {
     private Session session;
 

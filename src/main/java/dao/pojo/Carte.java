@@ -53,6 +53,20 @@ public enum Carte {
         return this.valeur;
     }
 
+    public int getPoint(Couleur atout) {
+        return this.valeur.getValeur(this.couleur.equals(atout));
+    }
+
+    public Category obtenirCategory(Couleur atout, Couleur demander) {
+        if(couleur == atout) {
+            return Category.ATOUT;
+        } else if(couleur == demander) {
+            return Category.DEMANDER;
+        } else {
+            return Category.AUTRE;
+        }
+    }
+
     public enum Couleur {
         PIQUE,
         TREFLE,
@@ -61,13 +75,39 @@ public enum Carte {
     }
 
     public enum Valeur {
-        N7,
-        N8,
-        N9,
-        N10,
-        VALET,
-        DAME,
-        ROI,
-        AS;
+        N7(0, 0),
+        N8(0, 0),
+        N9(14, 0),
+        N10(10, 10),
+        VALET(20, 2),
+        DAME(3, 3),
+        ROI(4, 4),
+        AS(11, 11);
+
+        private int valeurAtout;
+        private int valeurNormale;
+        Valeur(int valeurAtout, int valeurNormale) {
+            this.valeurAtout = valeurAtout;
+            this.valeurNormale = valeurNormale;
+        }
+
+        public int getValeur(boolean estAtout){
+            return estAtout ? this.valeurAtout : this.valeurNormale;
+        }
+    }
+
+    public enum Category {
+        ATOUT(2),
+        DEMANDER(1),
+        AUTRE(0);
+
+        private int category;
+        Category(int category) {
+            this.category = category;
+        }
+
+        public boolean estMeilleur(Category autre) {
+            return this.category > autre.category;
+        }
     }
 }

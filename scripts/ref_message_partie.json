@@ -1,0 +1,102 @@
+/// proposition atout
+// distribution.json
+{
+  "main": [
+    "PIQUE_7",
+    "PIQUE_AS",
+    "COEUR_ROI",
+    "TREFFLE_7",
+    "COEUR_10"
+  ],
+  "tour": "Nord",
+  "position": "Est",
+  "proposition": "TREFFLE_8",
+  "etape": "selectionAtout"
+}
+
+// reponse
+{
+  "etape": "selectionAtout",
+  "position": "Est",
+  "prendAtout": false
+}
+
+/// remplacement atout
+{
+  "main": [
+    "PIQUE_7",
+    "PIQUE_AS",
+    "COEUR_ROI",
+    "TREFFLE_7",
+    "COEUR_10"
+  ],
+  "tour": "Nord",
+  "position": "Est",
+  "ancientAtout": "TREFFLE_8",
+  "etape": "remplacementAtout"
+}
+
+/// propose remplacement
+// refuser
+{
+	"etape": "remplacementAtout",
+	"position": "Est",
+	"remplacement": null
+}
+
+// pris
+{
+  "etape": "remplacementAtout",
+  "position": "Est",
+  "remplacement": "TREFFLE_8",
+}
+
+// partie.json
+{
+  "etape": "joue",
+  
+  "main": [
+    "PIQUE_7",
+    "PIQUE_AS",
+    "COEUR_ROI"
+  ],
+  "atout": "TREFFLE",
+  "tapis": {
+    "nord": null,
+    "est": "TREFFLE_8",
+    "sud": "PIQUE_VALET",
+    "ouest": null
+  },
+  "tour": "Ouest",
+  "position": "Est",
+  "carteJouable": []
+}
+
+
+{
+  "etape": "joue",
+  "position": "Ouest",
+  "carte": "TREFFLE_ROI",
+  "note": "Belote"
+}
+
+{
+  "etape": "joue",
+  "position": "Nord",
+  "carte": "PIQUE_10",
+  "note": null
+}
+
+// score.json
+{
+  "etape": "changementScore",
+  "position": "est",
+  "changement": {
+    "nordSud": 0,
+    "estOuest": 152
+  },
+  "total": {
+    "nordSud": 475,
+    "estOuest": 326
+  }
+}
