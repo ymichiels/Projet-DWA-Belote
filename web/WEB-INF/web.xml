@@ -40,15 +40,6 @@
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>Register</servlet-name>
-        <jsp-file>/WEB-INF/views/register.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Register</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
