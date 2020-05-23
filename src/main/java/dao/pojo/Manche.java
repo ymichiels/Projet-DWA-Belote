@@ -32,8 +32,10 @@ public class Manche implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "atout_final")
     private Carte atoutFinal;
-    @Column(name = "point_manche")
-    private Short pointManche;
+    @Column(name = "point_manche_est_ouest")
+    private Short pointMancheEstOuest;
+    @Column(name = "point_manche_nord_sud")
+    private Short pointMancheNordSud;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "manche")
     private Collection<Plis> plisCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "manche")
@@ -83,12 +85,18 @@ public class Manche implements Serializable {
         this.atoutFinal = atoutFinal;
     }
 
-    public Short getPointManche() {
-        return pointManche;
+    public Short getPointMancheEstOuest() {
+        return pointMancheEstOuest;
+    }
+    public void setPointMancheEstOuest(Short pointMancheEstOuest) {
+        this.pointMancheEstOuest = pointMancheEstOuest;
     }
 
-    public void setPointManche(Short pointManche) {
-        this.pointManche = pointManche;
+    public Short getPointMancheNordSud() {
+        return pointMancheNordSud;
+    }
+    public void setPointMancheNordSud(Short pointMancheNordSud) {
+        this.pointMancheNordSud = pointMancheNordSud;
     }
 
     @JsonIgnore
