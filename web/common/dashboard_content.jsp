@@ -160,6 +160,5 @@
             </div>
         </div>
     </div>
-<!-- End of Page Content -->
 </div>
-
+<!-- End of Page Content -->
