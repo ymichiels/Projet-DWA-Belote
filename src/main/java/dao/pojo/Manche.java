@@ -19,8 +19,7 @@ import java.util.Collection;
         , @NamedQuery(name = "Manche.findByPartieId", query = "SELECT m FROM Manche m WHERE m.manchePK.partieId = :partieId")
         , @NamedQuery(name = "Manche.findByMancheNb", query = "SELECT m FROM Manche m WHERE m.manchePK.mancheNb = :mancheNb")
         , @NamedQuery(name = "Manche.findByAtoutInitial", query = "SELECT m FROM Manche m WHERE m.atoutInitial = :atoutInitial")
-        , @NamedQuery(name = "Manche.findByAtoutFinal", query = "SELECT m FROM Manche m WHERE m.atoutFinal = :atoutFinal")
-        , @NamedQuery(name = "Manche.findByPointManche", query = "SELECT m FROM Manche m WHERE m.pointManche = :pointManche")})
+        , @NamedQuery(name = "Manche.findByAtoutFinal", query = "SELECT m FROM Manche m WHERE m.atoutFinal = :atoutFinal")})
 public class Manche implements Serializable {
 
     private static final long serialVersionUID = 1L;

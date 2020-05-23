@@ -8,21 +8,19 @@ public class main {
 
     public static void main(String[] args) throws Exception {
         EntityTransaction trans = null;
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
-        EntityManager em = emf.createEntityManager();
-
         try {
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
+            EntityManager em = emf.createEntityManager();
+
             trans = em.getTransaction();
             trans.begin();
-
-            int partieId = 1;
-            byte mancheId = 1;
-
-            Robot robot = new Robot();
-            robot.setPseudo("Randy");
-            robot.setProgramme("Random");
-            em.merge(robot);
+            Humain humain = new Humain();
+            humain.setPseudo("Caribou");
+            humain.setAge((short)42);
+            humain.setMotDePasse("cariou");
+            humain.setSexe('H');
+            humain.setVille("Pau");
+            em.merge(humain);
             trans.commit();
 
             //Partie partie = em.find(Partie.class, partieId);
