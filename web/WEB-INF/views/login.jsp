@@ -65,7 +65,7 @@
                             <h1 class="h4 mb-4">Content de vous voir !</h1>
                         </div>
                         <hr>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate method="post" action="login/check">
                             <div class="form-group mb-3">
                                 <label for="InputPseudo">Pseudo</label>
                                 <input type="text" name="pseudo" class="form-control rounded-pill" id="InputPseudo"
