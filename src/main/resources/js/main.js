@@ -21,6 +21,29 @@
     }, false);
 })();
 
+
+/*
+ * Canvas
+ */
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+const drawImage = (url) => {
+    const image = new Image();
+    image.src = "url";
+    image.onload = function() {
+        canvas.width = image.width;
+        canvas.height = image.height;
+        ctx.drawImage(image, 0, 0);
+    };
+};
+
+drawImage("../medias/img/tapis.jpg");
+
+ctx.beginPath();
+
+
 /*
  * Chart.js
  */

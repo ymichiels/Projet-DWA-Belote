@@ -71,5 +71,5 @@
             </form>
         </div>
     </div>
-<!-- End of Main Content -->s
 </div>
+<!-- End of Main Content -->
