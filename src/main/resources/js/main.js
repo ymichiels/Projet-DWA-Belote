@@ -167,9 +167,28 @@ $(document).ready(function() {
  * ChangeDynamicContentJSP
  */
 
-// $("#idButton").click(function() {
-//     var container = document.getElementById("myContent");
-//
-//
-//     return false;
-// });
+$("#new-play").click(function() {
+    var container = document.getElementById("myContent");
+    var html = document.getElementById('myContent').innerHTML;
+
+
+    return false;
+});
+
+
+var i = 1;
+$( "#ebookParts" ).click(function() {
+    var container = document.getElementById("myContainerDiv");
+    var html = document.getElementById('myContainerDiv').innerHTML;
+    html = html + "<div class=\"col-sm-12\">"
+        + "<div class=\"form-group\">"
+        + "<div class=\"col-sm-6\"><label>Name</label><input class=\"form-control\" type=\"text\" name=\"display_name[]\"></div>"
+        + "<div class=\"col-sm-2\"><label>Part</label><input class=\"form-control\" type=\"text\" name=\"part[]\" value=" + i + "></div>"
+        + "<div class=\"col-sm-2\"><label>Pages between</label><input class=\"form-control\" type=\"text\" name=\"pages[]\"></div>"
+        + "<div class=\"col-sm-2\"><label>price</label><input class=\"form-control\" type=\"text\" name=\"price[]\"></div>"
+        + "</div>"
+        + "</div>";
+    container.innerHTML= html;
+    i++;
+    return false;
+});
