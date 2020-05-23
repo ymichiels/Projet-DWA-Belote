@@ -34,7 +34,7 @@ public class loginServlet extends HttpServlet {
         List<Humain> match = mh.findByPseudo(pseudo);
 
 
-        if (pseudo.equals(match) && password.equals(match.get(0).getMotDePasse())) {
+        if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
             req.getSession().setAttribute("user", new Humain(pseudo, password));
             resp.sendRedirect("index");
 
