@@ -6,6 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="dao.pojo.*" language="java" %>
+<%
+    //Initialisation des paramètres de session
+    Humain humain = (Humain) request.getSession().getAttribute(("humain"));
+    if(humain == null) {
+        response.sendRedirect("login");
+    }
+%>
+
 <html>
 <head>
     <meta charset="utf-8">
