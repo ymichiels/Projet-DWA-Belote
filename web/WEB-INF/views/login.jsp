@@ -68,7 +68,7 @@
                         <form class="needs-validation" novalidate>
                             <div class="form-group mb-3">
                                 <label for="InputPseudo">Pseudo</label>
-                                <input type="text"  name="pseudo" class="form-control rounded-pill" id="InputPseudo"
+                                <input type="text" name="pseudo" class="form-control rounded-pill" id="InputPseudo"
                                        aria-describedby="pseudoHelp" placeholder="Saisissez votre pseudo..." required
                                        autofocus>
                                 <div class="invalid-feedback">

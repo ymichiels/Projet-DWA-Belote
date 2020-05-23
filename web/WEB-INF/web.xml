@@ -8,7 +8,7 @@
 
     <!-- met login.jsp en racine -->
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>views/login.jsp</welcome-file>
     </welcome-file-list>
 
     <filter>
