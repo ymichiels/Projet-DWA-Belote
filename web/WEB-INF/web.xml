@@ -30,16 +30,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <jsp-file>/login.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <!--<servlet-class></servlet-class>-->
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>Register</servlet-name>
         <jsp-file>/register.jsp</jsp-file>
     </servlet>

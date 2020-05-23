@@ -8,12 +8,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@WebServlet(name = "loginServlet", urlPatterns = "/login")
 public class loginServlet extends HttpServlet {
 
     //Modifie les informations pour l'affichage de notre site
@@ -35,7 +37,7 @@ public class loginServlet extends HttpServlet {
 
 
         if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
-            req.getSession().setAttribute("user", new Humain(pseudo, password));
+            req.getSession().setAttribute("user", match.get(0).getPseudo());
             resp.sendRedirect("index");
 
         }
