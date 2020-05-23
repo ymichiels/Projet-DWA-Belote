@@ -23,9 +23,6 @@ public class Robot extends Joueur {
     @Basic(optional = false)
     @Column(name = "programme")
     private String programme;
-    @JoinColumn(name = "joueur_id", referencedColumnName = "joueur_id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Joueur joueur;
 
     public Robot() {
     }
@@ -55,14 +52,6 @@ public class Robot extends Joueur {
 
     public void setProgramme(String programme) {
         this.programme = programme;
-    }
-
-    public Joueur getJoueur() {
-        return joueur;
-    }
-
-    public void setJoueur(Joueur joueur) {
-        this.joueur = joueur;
     }
 
     @Override
