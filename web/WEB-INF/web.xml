@@ -6,6 +6,11 @@
     <display-name>Application belote</display-name>
     <description>Une application gérant un serveur supportant des parties de belote.</description>
 
+    <!-- met login.jsp en racine -->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
     <servlet>
         <servlet-name>ADummyPage</servlet-name>
         <jsp-file>/dummy.jsp</jsp-file>
@@ -14,7 +19,7 @@
         <servlet-name>ADummyPage</servlet-name>
         <url-pattern>/dummy</url-pattern>
     </servlet-mapping>
-<!--
+
     <servlet>
         <servlet-name>Index</servlet-name>
         <jsp-file>/index.jsp</jsp-file>
@@ -42,21 +47,8 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>EditPlayer</servlet-name>
-        <jsp-file>/edit.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>EditPlayer</servlet-name>
-        <url-pattern>/edit</url-pattern>
-    </servlet-mapping>
--->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
 
-    <!-- met login.jsp en racine -->
-    <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
-    </welcome-file-list>
 </web-app>

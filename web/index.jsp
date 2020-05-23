@@ -16,29 +16,12 @@
 
     <title>Belote</title>
 
-    <!-- Fontawesome core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <%@include file="common/include.jsp" %>
 </head>
 <body>
 <div class="wrapper">
-    <%@include file="sidebar.jsp" %>
-    <%@include file="dashboard_content.jsp" %>
-    <%@include file="logoutModal.jsp" %>
-
-    <!-- Jquery core JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Chart.js core JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <!-- DataTables core JavaScript-->
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Custom JavaScript-->
-    <script src="js/main.js"></script>
+    <%@include file="common/sidebar.jsp" %>
+    <%@include file="common/dashboard_content.jsp" %>
+    <%@include file="common/logoutModal.jsp" %>
 </body>
 </html>

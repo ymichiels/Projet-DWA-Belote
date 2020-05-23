@@ -19,7 +19,7 @@
             <div class="modal-body">Choisissez "Se déconnecter" si vous souhaitez quitter votre session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                <a class="btn btn-primary" href="login.jsp">Se déconnecter</a>
+                <a class="btn btn-primary" href="../views/login.jsp">Se déconnecter</a>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
     </div>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="index.html">
+            <a class="nav-link active" href="../index.html">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Dashboard</span>
             </a>
