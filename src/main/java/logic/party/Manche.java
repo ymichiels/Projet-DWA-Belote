@@ -192,16 +192,23 @@ public class Manche {
                 belote.setScore(posBelote, 20);
             }
 
-            total.add(belote);
-            // si l'équipe ayant pris marque suffisament de point
-            if(total.getScore(preneur) < 81) {
-                total = new Score();
-                // met les points
-                total.setScore(preneur.next(), 162);
-                total.add(belote);
+            //traite le cas où une équipe gagne tous les plis
+            if(total.getNordSud() == 0) {
+                total.setEstOuest(252 + belote.getEstOuest());
+            } else if (total.getEstOuest() == 0){
+                total.setNordSud(252 + belote.getNordSud());
             } else {
-                // set le score de l'autre équipe a la valeur de leur belote (defaut; 0)
-                total.setScore(preneur.next(), belote.getScore(preneur.next()));
+                total.add(belote);
+                // si l'équipe ayant pris marque suffisament de point
+                if (total.getScore(preneur) < 81) {
+                    total = new Score();
+                    // met les points
+                    total.setScore(preneur.next(), 162);
+                    total.add(belote);
+                } else {
+                    // set le score de l'autre équipe a la valeur de leur belote (defaut; 0)
+                    total.setScore(preneur.next(), belote.getScore(preneur.next()));
+                }
             }
             score = total;
         }

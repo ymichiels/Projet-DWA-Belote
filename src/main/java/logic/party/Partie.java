@@ -31,10 +31,17 @@ public class Partie {
         joueurs.setSud(sud);
         joueurs.setOuest(ouest);
 
-        // fixme;  je suis pas en etat de coder le coeud de l'application :[.
-        // globalement, il faudra faire bouger des trucs qui sont en paramettre en attribut et les mettres dans joueur (Position et atout)
-        // Ajouter la liste de carte directement dans la classe joueur
-        // bref, avoir logic.Joueur correspondre à un jour concret
+        Score score = new Score();
+        while (score.getEstOuest() < 501 && score.getNordSud() < 501) {
+            Manche manche = new Manche(this);
+            listManches.add(manche);
+            try {
+                manche.jouer();
+                score.add(manche.getScore());
+            } catch (InterruptedException | ExecutionException err) {
+                err.printStackTrace();
+            }
+        }
     }
 
     public dao.pojo.Partie saveDao(EntityManager em){
@@ -56,10 +63,13 @@ public class Partie {
         partie.setEq2a(joueurs.getOuest().getDao());
         partie.setEq1b(joueurs.getSud().getDao());
         partie.setEq2b(joueurs.getEst().getDao());
-        partie.setDuree(new Date());
+        partie.setDuree(new Date()); // fixme purpose for this field
 
         partie.setScoreEq1((short)score.getNordSud());
         partie.setScoreEq2((short)score.getEstOuest());
+
+        em.merge(partie);
+        transaction.commit();
 
         return partie;
     }
