@@ -43,12 +43,13 @@ public class loginServlet extends HttpServlet {
             String formPasswordName = "password";
             if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
                 req.getSession().setAttribute("user", match.get(0).getPseudo());
-                resp.sendRedirect("index");
+                resp.sendRedirect("index.jsp");
             }
             else{
                 // mauvais mot de passe
-                resp.sendRedirect("login");
+                resp.sendRedirect("loginErrorModal.jsp");
             }
         }
     }
 }
+
