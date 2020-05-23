@@ -7,7 +7,7 @@ import java.util.List;
 public class main {
 
     public static void main(String[] args) throws Exception {
-        /*EntityTransaction trans = null;
+        EntityTransaction trans = null;
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
         EntityManager em = emf.createEntityManager();
@@ -19,8 +19,11 @@ public class main {
             int partieId = 1;
             byte mancheId = 1;
 
-            Humain hum = new Humain();
-            hum.setPseudo("dummy");
+            Robot robot = new Robot();
+            robot.setPseudo("Randy");
+            robot.setProgramme("Random");
+            em.merge(robot);
+            trans.commit();
 
             //Partie partie = em.find(Partie.class, partieId);
             //Partie partie = new Partie();
@@ -36,9 +39,8 @@ public class main {
 
             //em.merge(partie);
             //System.out.println(manche.getAtoutFinal() + " - " + manche.getAtoutInitial());
-            em.merge(hum);
+            //em.merge(hum);
 
-            trans.commit();
         } catch(PersistenceException err) {
             try {
                 if(trans != null) {
@@ -48,9 +50,9 @@ public class main {
                 System.err.println(rollErr);
             }
             throw(err);
-        }*/
+        }
 
-        Temp temp = new Temp();
+        /*Temp temp = new Temp();
         temp.carte = Carte.CARREAU_10;
 
         ObjectMapper om = new ObjectMapper();
@@ -72,7 +74,7 @@ public class main {
         data = om.writerWithDefaultPrettyPrinter().writeValueAsString(lel);
         System.out.println(data);
         Lel lel2 = om.readValue(data, Lel.class);
-        System.out.println(lel2.values);
+        System.out.println(lel2.values);*/
         // TODO code application logic here
     }
     static class Temp {
