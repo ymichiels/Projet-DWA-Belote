@@ -40,12 +40,12 @@ public class Joueur implements Serializable {
     @Column(name = "joueur_id")
     private Integer joueurId;
     @Column(name = "nb_victoire")
-    private Integer nbVictoire;
+    private Integer nbVictoire = 0;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "score_moyen")
-    private Float scoreMoyen;
+    private Float scoreMoyen = 0.0f;
     @Column(name = "nb_partie")
-    private Integer nbPartie;
+    private Integer nbPartie = 0;
     @Basic(optional = false)
     @Column(name = "pseudo")
     private String pseudo;
