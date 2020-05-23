@@ -114,7 +114,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="login.jsp">J'ai déja un compte ? Se connecter !</a>
+                            <a class="small" href="login">J'ai déja un compte ? Se connecter !</a>
                         </div>
                     </div>
                 </div>

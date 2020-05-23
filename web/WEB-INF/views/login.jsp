@@ -89,7 +89,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="register.jsp">Créer un nouveau compte !</a>
+                            <a class="small" href="register">Créer un nouveau compte !</a>
                         </div>
                     </div>
                 </div>
