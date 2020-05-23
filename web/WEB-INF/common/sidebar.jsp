@@ -13,20 +13,20 @@
     </div>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="/index.jsp">
+            <a class="nav-link active" href="/index">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-chart-pie">/statistics</i>
+            <a class="nav-link" href="/stats">
+                <i class="fas fa-fw fa-chart-pie"></i>
                 <span>Statistiques</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-info-circle">"/infos"</i>
+            <a class="nav-link" href="/infos">
+                <i class="fas fa-fw fa-info-circle"></i>
                 <span>Informations</span>
             </a>
         </li>
