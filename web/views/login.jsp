@@ -68,14 +68,20 @@
                         <form class="needs-validation" novalidate>
                             <div class="form-group mb-3">
                                 <label for="InputPseudo">Pseudo</label>
-                                <input name="pseudo" class="form-control rounded-pill" id="InputPseudo"
+                                <input type="text"  name="pseudo" class="form-control rounded-pill" id="InputPseudo"
                                        aria-describedby="pseudoHelp" placeholder="Saisissez votre pseudo..." required
                                        autofocus>
+                                <div class="invalid-feedback">
+                                    Veuillez écrire un pseudo valide !
+                                </div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="InputPseudo">Mot de passe</label>
                                 <input name="password" type="password" class="form-control rounded-pill" id="InputPassword"
                                        placeholder="Mot de passe" required>
+                                <div class="invalid-feedback">
+                                    Veuillez écrire un mot de passe valide !
+                                </div>
                             </div>
                             <button id="btn_login" class="btn btn-lg btn-primary btn-block rounded-pill" type="submit">
                                 Se connecter
@@ -97,6 +103,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Bootstrap core JavaScript-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript-->
+<script src="js/main.js"></script>
 
 </body>
 </html>

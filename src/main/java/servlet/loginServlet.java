@@ -35,14 +35,20 @@ public class loginServlet extends HttpServlet {
         ManagerHumain mh = new ManagerHumain(em);
         List<Humain> match = mh.findByPseudo(pseudo);
 
+        if(match.isEmpty()){
+            // pas de joueur correspondant
 
-        if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
-            req.getSession().setAttribute("user", match.get(0).getPseudo());
-            resp.sendRedirect("index");
-
-        }
-        else {
-            resp.sendRedirect("login");
+        } else {
+            Humain hum = match.get(0);
+            String formPasswordName = "password";
+            if (pseudo.equals(match.get(0).getPseudo()) && password.equals(match.get(0).getMotDePasse())) {
+                req.getSession().setAttribute("user", match.get(0).getPseudo());
+                resp.sendRedirect("index");
+            }
+            else{
+                // mauvais mot de passe
+                resp.sendRedirect("login");
+            }
         }
     }
 }
