@@ -25,7 +25,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#infoModal" href="#infoModal">>
+            <a class="nav-link" data-toggle="modal" data-target="#infoModal" href="#infoModal">
                 <i class="fas fa-fw fa-info-circle"></i>
                 <span>Informations</span>
             </a>
