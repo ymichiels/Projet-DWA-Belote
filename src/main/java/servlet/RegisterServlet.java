@@ -38,12 +38,12 @@ public class RegisterServlet extends HttpServlet {
 //            Humain humain = mh.create(pseudo, password);
 //            em.merge(humain);
             Humain humain = new Humain();
-            humain.setPseudo("Caribou");
-            humain.setMotDePasse("cariou");
+            humain.setPseudo(pseudo);
+            humain.setMotDePasse(password);
 
             trans.commit();
             //registration success
-            resp.sendRedirect("/index?status=1");
+            resp.sendRedirect("/index");
 
         } catch (PersistenceException err) {
             try {
