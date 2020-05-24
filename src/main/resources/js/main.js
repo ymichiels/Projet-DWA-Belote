@@ -169,27 +169,34 @@ $(document).ready(function() {
 
 //Statistics
 $("#navStatistics").click(function() {
-    const urlServletWithStats = 'stats';
-    const container = document.querySelector('#myContent');
-    fetch(urlServletWithStats)
-        .then(resp => resp.text())
-        .then(content => container.innerHTML = content);
+    // const urlServletWithStats = 'stats';
+    $('#myContent').load('/WEB-INF/common/common/statistics.jsp');
+    // const container = document.querySelector('#myContent');
+    // fetch(urlServletWithStats)
+    //     .then(resp => resp.text())
+    //     .then(content => container.innerHTML = content);
 });
 
 //EditProfil
 $("#navEditPlayer").click(function() {
-    const urlServletWithEditPlayer = 'editPlayer';
-    const container  = document.querySelector('#myContent');
-    fetch(urlServletWithEditPlayer)
-        .then(resp => resp.text())
-        .then(content => container.innerHTML = content);
+    //const urlServletWithEditPlayer = 'editPlayer';
+    //const currentContainer  = document.getElementById('myContent');
+    $('#myContent').load('/WEB-INF/common/editprofil.jsp');
+    // fetch(urlServletWithEditPlayer)
+    //     .then(resp => resp.text())
+    //     .then(newContainer => currentContainer.innerHTML = newContainer);
+    //document.getElementById('myContent').innerHTML = newContainer;
 });
 
 //NewGame
+
 $("#navNewGame").click(function() {
     const urlServletWithNewGame = 'newGame';
-    const container  = document.querySelector('#myContent');
-    fetch(urlServletWithNewGame)
-        .then(resp => resp.text())
-        .then(content => container.innerHTML = content);
+    $('#myContent').load('/WEB-INF/common/common/newgame.jsp');
+    // const container  = document.querySelector('#myContent');
+    // const newContainer = "/WEB-INF/common/newgame.jsp";
+    // fetch(urlServletWithNewGame)
+    //     .then(resp => resp.text())
+    //     .then(content => container.innerHTML = content);
+    //document.getElementById('myContent').innerHTML = newContainer;
 });
