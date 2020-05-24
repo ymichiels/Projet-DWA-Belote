@@ -9,7 +9,7 @@
 <!-- Topbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <button type="button" id="new-play" class="btn btn-info">
+        <button type="button" id="navNewGame" class="btn btn-info">
             <span>Commencer une nouvelle partie</span>
             <i class="fas fa-play"></i>
         </button>
@@ -68,7 +68,7 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="/editProfile">
+                        <a class="dropdown-item" id="navEditPlayer" href="/editProfile">
                             <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
                             Réglages
                         </a>

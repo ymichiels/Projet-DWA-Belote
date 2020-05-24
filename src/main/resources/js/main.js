@@ -167,11 +167,29 @@ $(document).ready(function() {
  * ChangeDynamicContentJSP
  */
 
-$("#new-play").click(function() {
+//Statistics
+$("#navStatistics").click(function() {
     const urlServletWithStats = 'stats';
-    const div = document.querySelector('#myContent');
+    const container = document.querySelector('#myContent');
     fetch(urlServletWithStats)
         .then(resp => resp.text())
-        .then(content => div.innerHTML = content);
+        .then(content => container.innerHTML = content);
 });
 
+//EditProfil
+$("#navEditPlayer").click(function() {
+    const urlServletWithEditPlayer = 'editPlayer';
+    const container  = document.querySelector('#myContent');
+    fetch(urlServletWithEditPlayer)
+        .then(resp => resp.text())
+        .then(content => container.innerHTML = content);
+});
+
+//NewGame
+$("#navNewGame").click(function() {
+    const urlServletWithNewGame = 'newGame';
+    const container  = document.querySelector('#myContent');
+    fetch(urlServletWithNewGame)
+        .then(resp => resp.text())
+        .then(content => container.innerHTML = content);
+});
