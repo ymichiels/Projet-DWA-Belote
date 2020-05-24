@@ -32,6 +32,7 @@
     <%@include file="common/sidebar.jsp" %>
     <div id="myContent"><%@include file="common/dashboard_content.jsp"%></div>
     <%@include file="common/logoutModal.jsp" %>
+    <%@include file="common/infoModal.jsp" %>
 </div>
 </body>
 </html>
