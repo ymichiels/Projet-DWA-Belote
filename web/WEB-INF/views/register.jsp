@@ -96,7 +96,7 @@
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="inputPassword">Mot de passe</label>
                                     <input type="password" name="password" class="form-control rounded-pill" id="inputPassword"
-                                           placeholder="Mot de¨passe">
+                                           placeholder="Mot de¨passe" required>
                                     <div class="invalid-feedback">
                                         Veuillez écrire un mot de passe valide !
                                     </div>
@@ -104,7 +104,7 @@
                                 <div class="col-sm-6 mb-3">
                                     <label for="inputConfirmPassword">Mot de passe</label>
                                     <input type="password" name="passwordConfirm" class="form-control rounded-pill" id="inputConfirmPassword"
-                                           placeholder="Confirmer le mot de passe">
+                                           placeholder="Confirmer le mot de passe" required>
                                     <div class="invalid-feedback">
                                         Veuillez confirmer votre mot de passe !
                                     </div>
