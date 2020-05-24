@@ -3,10 +3,7 @@ package servlet;
 import dao.helper.ManagerHumain;
 import dao.pojo.Humain;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,11 +20,42 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
-    }
 
-    //Récupère informations passées dans un formulaire
-    @Override
-    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String city = req.getParameter("city");
+        //String sexe = req.getParameter("sexe");
+        String age = req.getParameter("age");
+        String pseudo = req.getParameter("pseudo");
+        String password = req.getParameter("password");
 
+        EntityTransaction trans = null;
+        try {
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("BelotePU");
+            EntityManager em = emf.createEntityManager();
+            trans = em.getTransaction();
+
+            trans.begin();
+//            ManagerHumain mh = new ManagerHumain(em);
+//            Humain humain = mh.create(pseudo, password);
+//            em.merge(humain);
+            Humain humain = new Humain();
+            humain.setPseudo("Caribou");
+            humain.setMotDePasse("cariou");
+
+            trans.commit();
+            //registration success
+            resp.sendRedirect("/index?status=1");
+
+        } catch (PersistenceException err) {
+            try {
+                if (trans != null) {
+                    trans.rollback();
+                    //Registration failed
+                    resp.sendRedirect("/register");
+                }
+            } catch (Exception rollErr) {
+                System.err.println(rollErr);
+            }
+            throw (err);
+        }
     }
 }

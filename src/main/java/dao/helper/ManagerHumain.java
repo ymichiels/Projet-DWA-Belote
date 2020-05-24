@@ -30,6 +30,19 @@ public class ManagerHumain extends ManagerBase {
         return humain;
     }
 
+    public Humain create(String pseudo, String motDePasse) {
+        Humain humain = new Humain();
+        humain.setPseudo(pseudo);
+        humain.setMotDePasse(motDePasse);
+        humain.setNbPartie(0);
+        humain.setNbVictoire(0);
+        humain.setScoreMoyen(0f);
+
+        this.getManager().persist(humain);
+
+        return humain;
+    }
+
     public void update(Humain humain) {
         this.getManager().merge(humain);
     }
